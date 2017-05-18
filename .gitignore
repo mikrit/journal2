@@ -1,0 +1,6 @@
+.idea/
+application/config
+application/logs
+application/cache
+modules/profilertoolbar
+*.sql
