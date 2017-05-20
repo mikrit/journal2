@@ -1,5 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');?>
 
+<div id="title">Список пациентов</div>
+
 <div class="noprint">
 	<div class="row">
 		<div class="col-xs-12 col-sm-8 col-md-6">
@@ -24,14 +26,17 @@
 	</div>
 </div>
 
-<div id="title">Список пациентов</div>
 
-<div id="edit">
-    <?=Html::anchor('patient/add_patient/', '+ Добавить нового пациента')?>
-</div>
 
-<table class="table table-striped table-bordered">
+
+
+<table class="table table-striped table-bordered2">
 	<thead>
+        <tr>
+            <td colspan="7" style="text-align: right">
+                <?=Html::anchor('patient/add_patient/', '+ Добавить нового пациента')?>
+            </td>
+        </tr>
 		<tr>
 			<th>
 				ФИО
@@ -52,7 +57,7 @@
 				Диагноз
 			</th>
 			<th>
-				Дата регистрации
+				Дата рег.
 			</th>
 		</tr>
 	</thead>

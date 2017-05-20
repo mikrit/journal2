@@ -4,12 +4,12 @@ class Controller_Data extends Controller_BaseLK
 {
     public function action_index()
     {
-        $this->template->content = View::factory('data/index')->render();
+        $this->template->content = View::factory('BaseLK/data/index')->render();
     }
 
     public function action_list_analyzes()
     {
-        $view = View::factory('data/list_analyzes');
+        $view = View::factory('BaseLK/data/list_analyzes');
         $view->data = ORM::factory('analysis')->find_all();
 
         $this->template->content = $view->render();
@@ -40,7 +40,7 @@ class Controller_Data extends Controller_BaseLK
             }
         }
 
-        $view = View::factory('data/add_analysis');
+        $view = View::factory('BaseLK/data/add_analysis');
 
         $view->data = $data;
         $view->errors = $errors;
@@ -79,7 +79,7 @@ class Controller_Data extends Controller_BaseLK
             }
         }
 
-        $view = View::factory('data/update_analysis');
+        $view = View::factory('BaseLK/data/update_analysis');
 
         $view->id = $orm->id;
         $view->data = $data;
@@ -91,7 +91,7 @@ class Controller_Data extends Controller_BaseLK
     
 	public function action_list_statuses()
     {
-        $view = View::factory('data/list_statuses');
+        $view = View::factory('BaseLK/data/list_statuses');
         $view->data = ORM::factory('status')->find_all();
 
         $this->template->content = $view->render();
@@ -125,7 +125,7 @@ class Controller_Data extends Controller_BaseLK
             }
         }
 
-        $view = View::factory('data/add_status');
+        $view = View::factory('BaseLK/data/add_status');
 
         $view->data = $data;
         $view->errors = $errors;
@@ -167,7 +167,7 @@ class Controller_Data extends Controller_BaseLK
             }
         }
 
-        $view = View::factory('data/update_status');
+        $view = View::factory('BaseLK/data/update_status');
 
         $view->id = $orm->id;
         $view->data = $data;
@@ -180,7 +180,7 @@ class Controller_Data extends Controller_BaseLK
 
 	public function action_list_methods()
 	{
-		$view = View::factory('data/list_methods');
+		$view = View::factory('BaseLK/data/list_methods');
 		$view->data = ORM::factory('method')->find_all();
 
 		$this->template->content = $view->render();
@@ -211,7 +211,7 @@ class Controller_Data extends Controller_BaseLK
 			}
 		}
 
-		$view = View::factory('data/add_method');
+		$view = View::factory('BaseLK/data/add_method');
 
 		$view->data = $data;
 		$view->errors = $errors;
@@ -250,7 +250,7 @@ class Controller_Data extends Controller_BaseLK
 			}
 		}
 
-		$view = View::factory('data/update_method');
+		$view = View::factory('BaseLK/data/update_method');
 
 		$view->id = $orm->id;
 		$view->data = $data;

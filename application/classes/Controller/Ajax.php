@@ -50,4 +50,12 @@ class Controller_Ajax extends Controller
 
 		echo json_encode($statuses);
 	}
+
+    public function action_get_status()
+    {
+        if($_POST)
+        {
+            echo json_encode($_POST['fio'].' '.$_POST['number']);
+        }
+    }
 }

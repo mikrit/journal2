@@ -4,9 +4,9 @@
 	<div class="col-md-8">
 		<div class="jumbotron">
 			<h2>Проверить анализ</h2>
-			<form class="form-signin" method="post">
-				<?=Form::input('ФИО', '', array('type' => 'text', 'id' => 'login', 'placeholder' => 'ФИО', 'class' => 'form-control', 'required' => ''));?>
-				<?=Form::input('Номер анализа', '', array('type' => 'text', 'id' => 'login', 'placeholder' => 'Номер анализа', 'class' => 'form-control', 'required' => ''));?>
+			<form id="search" class="form-signin" method="post">
+				<?=Form::input('ФИО', '', array('type' => 'text', 'id' => 'fio', 'placeholder' => 'ФИО', 'class' => 'form-control', 'required' => ''));?>
+				<?=Form::input('Номер анализа', '', array('type' => 'text', 'id' => 'number', 'placeholder' => 'Номер анализа', 'class' => 'form-control', 'required' => ''));?>
 				<?=HTML::anchor('#', 'Проверить', array('id' => 'check_analiz', 'class' => 'btn btn-primary ladda-button', 'data-style' => 'zoom-in'));?>
 			</form>
 		</div>
@@ -17,8 +17,33 @@
 			<h3><strong>Статус:</strong></h3>
 			<br/>
 			<div id="status">
-				Готов
 			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+    $("#check_analiz").click(function()// при нажатии кнопки "Вход"
+    {
+        var l = Ladda.create(this).start();
+
+        var fio = $('#fio').val();
+        var number = $('#number').val();
+
+        console.log(fio, number);
+
+        $.ajax({
+            type: "POST",
+            url: "ajax/get_status",
+            dataType: "json",
+            data: {
+                fio: fio,
+                number: number
+            },
+            success: function(result){
+                $('#status').html(result);
+            }
+        });
+        l.stop();
+    });
+</script>

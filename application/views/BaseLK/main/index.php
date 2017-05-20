@@ -35,7 +35,7 @@
 	</div>
 </div>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered2">
 	<thead>
 		<tr>
 			<th>
@@ -45,19 +45,19 @@
 				Статус
 			</th>
 			<th>
-				Номер анализа
+				№ анализа
 			</th>
 			<th>
 				ФИО
 			</th>
 			<th>
-				Год рождения
+				Год рож.
 			</th>
 			<th>
-				История болезни
+				Истор. бол.
 			</th>
 			<th>
-				Номер материала
+				№ материала
 			</th>
 			<th>
 				Кол-во материала
@@ -79,7 +79,7 @@
 				<?=$number->number_p?>
 			</th>
 			<td class="text-center">
-				<? echo "<a id='$number->id' href=javascript:change_status('$number->id')>".Html::image('media/img/'.$number->status.'.png', array('alt' => $statuses[$number->status], 'title' => $statuses[$number->status], 'width' => 32, 'height' => 32))."</a>" ?>
+				<?="<a id='$number->id' href=javascript:change_status('$number->id')>".Html::image('media/img/'.$number->status.'.png', array('alt' => $statuses[$number->status], 'title' => $statuses[$number->status], 'width' => 32, 'height' => 32))."</a>" ?>
 			</td>
 			<td>
 				<?=Html::anchor('patient/data_analysis/'.$number->id, $number->number_a)?>
