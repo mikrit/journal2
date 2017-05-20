@@ -8,8 +8,13 @@ class Controller_Info extends Controller_BaseInfo
 		$this->template->content = $view->render();
 	}
 
-	public function action_login()
+	public function action_vhod()
 	{
+        if(Auth::instance()->logged_in())
+        {
+            $this->redirect('main');
+        }
+
 		$view = View::factory('BaseInfo/info/login');
 
 		$view->auth = Request::factory('auth/view_login')->execute()->body();

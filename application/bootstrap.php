@@ -149,10 +149,10 @@ Route::set('about', 'about')
 		'action'     => 'about',
 	));
 
-Route::set('login', 'login')
+Route::set('vhod', 'vhod')
 	->defaults(array(
 		'controller' => 'info',
-		'action'     => 'login',
+		'action'     => 'vhod',
 	));
 
 /**
