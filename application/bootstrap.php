@@ -76,6 +76,8 @@ if (isset($_SERVER['SERVER_PROTOCOL']))
 	HTTP::$protocol = $_SERVER['SERVER_PROTOCOL'];
 }
 
+//var_dump($_SERVER);die;
+
 /**
  * Set Kohana::$environment if a 'KOHANA_ENV' environment variable has been supplied.
  *
