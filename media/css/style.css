@@ -7,3 +7,7 @@
 form {
     padding-bottom: 50px;
 }
+
+#button_search {
+    width: 20%;
+}

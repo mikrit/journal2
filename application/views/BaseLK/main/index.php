@@ -1,41 +1,41 @@
 <?php defined('SYSPATH') or die('No direct script access.');?>
-<div class="noprint">
-	<div class="row">
-		<div class="col-xs-12 col-sm-8 col-md-6">
-			<div id="title">Поиск</div>
-			<?=Form::open('main', array('method'=>'get', 'class' => 'form-horizontal'));?>
-				<div class="form-group row">
-					<label class="col-xs-3 col-sm-5">Год анализа:</label>
-					<div class="col-xs-9 col-sm-7">
-						<?=Form::input('year', $data['year'], array('class' => 'form-control', 'type' => 'text'));?>
-					</div>
+
+<div class="row noprint">
+	<div class="col-lg-6">
+		<div id="title">Поиск</div>
+		<?=Form::open('main', array('method'=>'get', 'class' => 'form-horizontal'));?>
+			<div class="form-group">
+				<label class="control-label col-xs-4">Год анализа:</label>
+				<div class="col-xs-8">
+					<?=Form::input('year', $data['year'], array('class' => 'form-control', 'type' => 'text'));?>
 				</div>
-				<div class="form-group">
-					<label class="col-xs-3 col-sm-5">ФИО пациента:</label>
-					<div class="col-xs-9 col-sm-7">
-						<?=Form::input('fio', $data['fio'], array('class' => 'form-control', 'type' => 'text'));?>
-					</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-xs-4">ФИО пациента:</label>
+				<div class="col-xs-8">
+					<?=Form::input('fio', $data['fio'], array('class' => 'form-control', 'type' => 'text'));?>
 				</div>
-				<div class="form-group">
-					<label class="col-xs-3 col-sm-5">Порядковый номер:</label>
-					<div class="col-xs-9 col-sm-7">
-						<?=Form::input('number_p', $data['number_p'], array('class' => 'form-control', 'type' => 'text'));?>
-					</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-xs-4">Порядковый номер:</label>
+				<div class="col-xs-8">
+					<?=Form::input('number_p', $data['number_p'], array('class' => 'form-control', 'type' => 'text'));?>
 				</div>
-				<div class="form-group">
-					<label class="col-xs-3 col-sm-5">Номер анализа:</label>
-					<div class="col-xs-9 col-sm-7">
-						<?=Form::input('number_a', $data['number_a'], array('class' => 'form-control', 'type' => 'text'));?>
-					</div>
+			</div>
+			<div class="form-group">
+				<label  class="control-label col-xs-4">Номер анализа:</label>
+				<div class="col-xs-8">
+					<?=Form::input('number_a', $data['number_a'], array('class' => 'form-control', 'type' => 'text'));?>
 				</div>
-				<?=Form::input('submit', 'Поиск',array('id' => 'button', 'type'=>'submit', 'class' => 'btn btn-primary'));?>
-			<?=Form::close();?>
-			<br/><br/>
-		</div>
+			</div>
+			<div class="col-xs-12" style="text-align: right;padding-right:0;">
+				<?=Form::input('submit', 'Поиск',array('id' => 'button_search', 'type'=>'submit', 'class' => 'btn btn-primary'));?>
+			</div>
+		<?=Form::close();?>
 	</div>
 </div>
 
-<table class="table table-striped table-bordered2">
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th>

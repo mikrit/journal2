@@ -1,6 +1,7 @@
 <?php defined('SYSPATH') OR die('No direct script access.');
 
-class HTTP_Exception_404 extends Kohana_HTTP_Exception_404 {
+class HTTP_Exception_404 extends Kohana_HTTP_Exception_404
+{
 
 	/**
 	 * Generate a Response for the 404 Exception.
