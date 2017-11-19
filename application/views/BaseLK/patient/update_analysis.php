@@ -120,7 +120,9 @@
 				num_id: num_id
 			}
 		}).done(function(data){
-			$('#answer').html(data.text);
+
+			console.log(data);
+			$('#answer').html(data);
 			return;
 		});
 	});

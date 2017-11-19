@@ -112,7 +112,8 @@ class Controller_Ajax extends Controller
 		}
 		else
 		{
-			return 'Нет телефона';
+			echo 'Нет телефона';
+			return;
 		}
 
 		$number = ORM::factory('number', $_POST['num_id']);
