@@ -3,6 +3,8 @@
 <div class="t-center">
 	<div id="title">Обновление данных пациента</div>
 
+	<div id="answer" class="error"></div>
+
 	<?=Form::open('patient/update_analysis/'.$id, array('method'=>'post'));?>
 	<table class="t_form">
 		<?php if(count($errors)):?>
@@ -107,6 +109,8 @@
 		var user_id = <?=$patient->id?>;
 		var num_id = <?=$id?>;
 
+		$('#answer').html();
+
 		$.ajax({
 			type: "POST",
 			url: '/ajax/send_sms',
@@ -114,10 +118,10 @@
 			data: {
 				user_id: user_id,
 				num_id: num_id
-			},
-			success: function(result){
-				$('#status').html(result);
 			}
+		}).done(function(data){
+			$('#answer').html(data.text);
+			return;
 		});
 	});
 </script>

@@ -34,7 +34,7 @@
         </tr>
 		<tr>
 			<td>Телефон:</td>
-			<td><?=Form::input('phone', $data['contacts'], array('class' => 'form-control input-medium bfh-phone', 'data-format' => '+7 (ddd) ddd-dddd', 'required' => ''));?></td>
+			<td><?=Form::input('phone', $data['phone'], array('class' => 'form-control input-medium bfh-phone', 'data-format' => '+7 (ddd) ddd-dddd', 'required' => ''));?></td>
 		</tr>
         <tr>
             <td>Контакты:</td>

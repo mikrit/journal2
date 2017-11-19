@@ -78,7 +78,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <?=Html::image('media/img/logo1.png', array('width' => 50, 'height' => 50));?>
+            <?=Html::image('media/img/logo_5.png', array('width' => 50, 'height' => 50));?>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
         <div class="collapse navbar-collapse">

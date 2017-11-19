@@ -97,7 +97,7 @@
 	<tr>
 		<td width="50%" align="center" id="border_right">
 			<br/>
-			<?=HTML::image('media/img/logo2.png', array('id' => 'print_img'))?>
+			<?=HTML::image('media/img/logo_5.png', array('id' => 'print_img'))?>
 			<br/>
 			ФИО: <b><?=$data->patient->fio?></b>
 			<br/><br/>
@@ -117,7 +117,8 @@
 			№ исследования: <b><?=$data->number_a?></b>
 		</td>
 		<td width="50%" align="center" rowspan="2" id="left_row">
-			<?=HTML::image('media/img/logo2.png', array('id' => 'print_img_'))?>
+			<br/>
+			<?=HTML::image('media/img/logo_5.png', array('id' => 'print_img_'))?>
 			<br/>
 			ООО «КОД-МЕД-БИО»<br/>
 			<b>Лаборатория молекулярной патологии</b><br/>
@@ -151,7 +152,7 @@
 </table>
 
 <script type="text/javascript">
-	/*var is_chrome = function () {
+	var is_chrome = function () {
 		return Boolean(window.chrome);
 	};
 
@@ -168,6 +169,6 @@
 		window.print();
 		self.close();
 		});
-	}*/
+	}
 </script>
 

@@ -104,7 +104,16 @@ class Controller_Ajax extends Controller
 
 		$user = ORM::factory('patient', $_POST['user_id']);
 		preg_match_all('/\d+/', $user->phone, $str);
-		$tel = $str[0][0].$str[0][1].$str[0][2].$str[0][3];
+
+		$tel = '';
+		if(isset($str[0][0]) && isset($str[0][1]) && isset($str[0][2]) && isset($str[0][3]))
+		{
+			$tel = $str[0][0].$str[0][1].$str[0][2].$str[0][3];
+		}
+		else
+		{
+			return 'Нет телефона';
+		}
 
 		$number = ORM::factory('number', $_POST['num_id']);
 		$num = $number->number_a;

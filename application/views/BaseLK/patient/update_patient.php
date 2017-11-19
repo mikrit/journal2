@@ -1,5 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');?>
 
+<?=Html::script('media/js/bootstrap-formhelpers-phone.js')?>
+
 <div class="t-center">
 	<div id="title">Обновление данных пациента</div>
 	
@@ -32,7 +34,9 @@
 		</tr>
 		<tr>
 			<td>Телефон:</td>
-			<td><?=Form::input('phone', $data['phone'], array('class' => 'form-control'));?></td>
+			<td>
+				<?=Form::input('phone', $data['phone'], array('class' => 'form-control input-medium bfh-phone', 'data-format' => '+7 (ddd) ddd-dddd', 'required' => ''));?>
+			</td>
 		</tr>
 		<tr>
 			<td>Контакты:</td>
