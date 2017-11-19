@@ -119,9 +119,8 @@
 				user_id: user_id,
 				num_id: num_id
 			}
-		}).done(function(data){
-
-			console.log(data);
+		}).done(function(data)
+		{
 			$('#answer').html(data);
 			return;
 		});
