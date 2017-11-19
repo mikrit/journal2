@@ -2,12 +2,12 @@
 
 <div class="row">
 	<div class="col-md-8">
-		<div class="jumbotron">
+		<div class="jumbotron card">
 			<h2>Проверить анализ</h2>
 			<form id="search" class="form-signin" method="post">
 				<?=Form::input('ФИО', '', array('type' => 'text', 'id' => 'fio', 'placeholder' => 'ФИО', 'class' => 'form-control', 'required' => ''));?>
 				<?=Form::input('Номер анализа', '', array('type' => 'text', 'id' => 'number', 'placeholder' => 'Номер анализа', 'class' => 'form-control', 'required' => ''));?>
-				<?=HTML::anchor('#', 'Проверить', array('id' => 'check_analiz', 'class' => 'btn btn-primary ladda-button', 'data-style' => 'zoom-in'));?>
+				<?=Form::input('submit', 'Проверить',array('id' => 'check_analiz', 'type'=>'submit', 'class' => 'btn btn-primary ladda-button', 'data-style' => 'zoom-in'));?>
 			</form>
 		</div>
 	</div>
@@ -23,14 +23,14 @@
 </div>
 
 <script>
-    $("#check_analiz").click(function()// при нажатии кнопки "Вход"
+    $("#search").submit(function()// при нажатии кнопки "Вход"
     {
         var l = Ladda.create(this).start();
 
         var fio = $('#fio').val();
         var number = $('#number').val();
 
-        console.log(fio, number);
+        //console.log(fio, number);
 
         $.ajax({
             type: "POST",
@@ -44,6 +44,9 @@
                 $('#status').html(result);
             }
         });
+
         l.stop();
+
+		return false;
     });
 </script>

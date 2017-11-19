@@ -53,9 +53,47 @@ class Controller_Ajax extends Controller
 
     public function action_get_status()
     {
-        if($_POST)
+		$statuses = array(
+			1 => 'Зарегистрирован, в ожидании обработки',
+			2 => 'Материал на отборе',
+			3 => 'В работе',
+			4 => 'Готов',
+			5 => 'Отказ пациента',
+			6 => 'Отказ по состоянию материала',
+			7 => 'Отправлен пациенту',
+			8 => 'Повтор',
+			9 => 'Особый случай',
+			10 => 'Договор',
+			11 => 'ДМС',
+		);
+
+		$fio = trim($_POST['fio']);
+		$number = trim($_POST['number']);
+
+		$patients = ORM::factory('patient')->where('fio', '=', $fio)->find_all();
+
+		$flag = 0;
+		$status = 0;
+		foreach($patients as $patient)
+		{
+			$numbers = $patient->numbers->find_all();
+			foreach($numbers as $num)
+			{
+				if($num->number_a == $number)
+				{
+					$status = $num->status;
+					$flag = 1;
+				}
+			}
+		}
+
+        if($flag == 1)
         {
-            echo json_encode($_POST['fio'].' '.$_POST['number']);
+            echo json_encode($statuses[$status]);
         }
+		else
+		{
+			echo json_encode('Анализ не найден.');
+		}
     }
 }
