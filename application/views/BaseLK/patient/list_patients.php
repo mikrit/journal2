@@ -26,10 +26,6 @@
 	</div>
 </div>
 
-
-
-
-
 <table class="table table-striped table-bordered2">
 	<thead>
         <tr>

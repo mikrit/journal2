@@ -20,31 +20,35 @@
         </tr>
 		<tr>
 			<td>ФИО:</td>
-			<td><?=Form::input('fio', $data['fio'], array('class' => 'input'));?></td>
+			<td><?=Form::input('fio', $data['fio'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Пол:</td>
-			<td><?=Form::select('sex', $sex, $data['sex']);?></td>
+			<td><?=Form::select('sex', $sex, $data['sex'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Год рождения:</td>
-			<td><?=Form::input('year', $data['year'], array('class' => 'input'));?></td>
+			<td><?=Form::input('year', $data['year'], array('class' => 'form-control'));?></td>
+		</tr>
+		<tr>
+			<td>Телефон:</td>
+			<td><?=Form::input('phone', $data['phone'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Контакты:</td>
-			<td><?=Form::input('contacts', $data['contacts'], array('class' => 'input', 'style' => 'width: 600px'));?></td>
+			<td><?=Form::input('contacts', $data['contacts'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>История болезни:</td>
-			<td><?=Form::input('history', $data['history'], array('class' => 'input'));?></td>
+			<td><?=Form::input('history', $data['history'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Отделение:</td>
-			<td><?=Form::input('department', $data['department'], array('class' => 'input'));?></td>
+			<td><?=Form::input('department', $data['department'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Диагноз:</td>
-			<td><?=Form::textarea('diagnosis', $data['diagnosis'], array('id' => 'notes'));?></td>
+			<td><?=Form::textarea('diagnosis', $data['diagnosis'], array('id' => 'notes', 'class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td class="right" colspan="2"><?=Form::input('submit', 'Обновить',array('id' => 'button', 'type'=>'submit'));?></td>

@@ -69,6 +69,7 @@ class Controller_Patient extends Controller_BaseLK
 		$data['diagnosis'] = '';
 		$data['history'] = '';
 		$data['contacts'] = '';
+		$data['phone'] = '';
 
 		if($_POST)
 		{

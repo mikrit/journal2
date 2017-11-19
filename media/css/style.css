@@ -11,3 +11,68 @@ form {
 #button_search {
     width: 20%;
 }
+
+/*Print*/
+
+#t_page{
+    height: 100%;
+    width: 100%;
+}
+
+#p{
+    vertical-align: top;
+}
+
+.table_print{
+    font-size: 25px;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.table_print td{
+    vertical-align: top;
+    padding-bottom: 20px;
+}
+
+.table_print2{
+    font-size: 25px;
+    width: 100%;
+    padding-top: 70px;
+}
+
+.table_print2 td{
+    vertical-align: top;
+    padding-bottom: 30px;
+}
+
+#border{
+    border-top: 1px dashed;
+}
+
+#page_print{
+    width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+#print_img {
+    height: 150px;
+    width: 75px;
+}
+
+#print_img2 {
+    height: 90px;
+    width: 50px;
+}
+
+#table_print_top{
+    font-size: 16px;
+    width: 100%;
+    border-bottom: 1px solid;
+    margin-bottom: 40px;
+}
+
+#print_img_ {
+    height: 120px;
+    width: 70px;
+}

@@ -7,11 +7,11 @@
 		<?=HTML::anchor('/', 'Анализы'); ?>
 	</li>
 	<li <?if($request[0] == 'about'){echo 'class="active"';}?>>
-		<?=HTML::anchor('about', 'О лаборатории'); ?>
+		<?HTML::anchor('about', 'О лаборатории'); ?>
 	</li>
 </ul>
 
-<? if(Auth::instance()->logged_in()){?>
+<?if(Auth::instance()->logged_in()){?>
 	<ul class="nav navbar-nav navbar-right">
 		<li>
 			<?=HTML::anchor('auth/logout', 'Выход');?>

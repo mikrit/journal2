@@ -1,5 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');?>
 
+<?=Html::script('media/js/bootstrap-formhelpers-phone.js')?>
+
 <div class="t-center">
     <div id="title">Добавление пациента</div>
 
@@ -20,34 +22,38 @@
     </tr-->
         <tr>
             <td>ФИО:</td>
-            <td><?=Form::input('fio', $data['fio'], array('class' => 'input'));?></td>
+            <td><?=Form::input('fio', $data['fio'], array('class' => 'form-control'));?></td>
         </tr>
         <tr>
             <td>Пол:</td>
-            <td><?=Form::select('sex', $sex, $data['sex']);?></td>
+            <td><?=Form::select('sex', $sex, $data['sex'], array('class' => 'form-control'));?></td>
         </tr>
         <tr>
             <td>Год рождения:</td>
-            <td><?=Form::input('year', $data['year'], array('class' => 'input'));?></td>
+            <td><?=Form::input('year', $data['year'], array('class' => 'form-control'));?></td>
         </tr>
+		<tr>
+			<td>Телефон:</td>
+			<td><?=Form::input('phone', $data['contacts'], array('class' => 'form-control input-medium bfh-phone', 'data-format' => '+7 (ddd) ddd-dddd', 'required' => ''));?></td>
+		</tr>
         <tr>
             <td>Контакты:</td>
-            <td><?=Form::input('contacts', $data['contacts'], array('class' => 'input', 'style' => 'width: 600px'));?></td>
+            <td><?=Form::input('contacts', $data['contacts'], array('class' => 'form-control'));?></td>
         </tr>
         <tr>
             <td>История болезни:</td>
-            <td><?=Form::input('history', $data['history'], array('class' => 'input'));?></td>
+            <td><?=Form::input('history', $data['history'], array('class' => 'form-control'));?></td>
         </tr>
         <tr>
             <td>Отделение:</td>
-            <td><?=Form::input('department', $data['department'], array('class' => 'input'));?></td>
+            <td><?=Form::input('department', $data['department'], array('class' => 'form-control'));?></td>
         </tr>
         <tr>
             <td>Диагноз:</td>
-            <td><?=Form::textarea('diagnosis', $data['diagnosis'], array('class' => 'form-control', 'data-provide' => 'markdown', 'rows' => '10'));?></td>
+            <td><?=Form::textarea('diagnosis', $data['diagnosis'], array('class' => 'form-control', 'id' => 'notes'));?></td>
         </tr>
         <tr>
-            <td class="right" colspan="2"><?=Form::input('submit', 'Добавить',array('id' => 'button', 'type'=>'submit'));?></td>
+            <td class="right" colspan="2"><?=Form::input('submit', 'Добавить',array('class' => 'btn btn-primary', 'id' => 'button', 'type'=>'submit'));?></td>
         </tr>
     </table>
     <?=Form::close();?>

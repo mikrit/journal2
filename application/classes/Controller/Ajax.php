@@ -54,17 +54,17 @@ class Controller_Ajax extends Controller
     public function action_get_status()
     {
 		$statuses = array(
-			1 => 'Зарегистрирован, в ожидании обработки',
-			2 => 'Материал на отборе',
+			1 => 'Анализ зарегистрирован',
+			2 => 'Материал принят в исследование',
 			3 => 'В работе',
-			4 => 'Готов',
+			4 => 'Анализ готов',
 			5 => 'Отказ пациента',
-			6 => 'Отказ по состоянию материала',
-			7 => 'Отправлен пациенту',
-			8 => 'Повтор',
-			9 => 'Особый случай',
-			10 => 'Договор',
-			11 => 'ДМС',
+			6 => 'Отказ',
+			7 => 'Анализ не найден',
+			8 => 'В работе',
+			9 => 'Анализ зарегистрирован',
+			10 => 'Анализ зарегистрирован',
+			11 => 'Анализ зарегистрирован',
 		);
 
 		$fio = trim($_POST['fio']);
@@ -96,4 +96,25 @@ class Controller_Ajax extends Controller
 			echo json_encode('Анализ не найден.');
 		}
     }
+
+	public function action_send_sms()
+	{
+		$login = 'labgenpat';
+		$password = '12345';
+
+		$user = ORM::factory('patient', $_POST['user_id']);
+		preg_match_all('/\d+/', $user->phone, $str);
+		$tel = $str[0][0].$str[0][1].$str[0][2].$str[0][3];
+
+		$number = ORM::factory('number', $_POST['num_id']);
+		$num = $number->number_a;
+		$sms = 'Исследование №'.$num.' готово';
+
+		$who = 'КОД-МЕД-БИО';
+
+		$text = 'https://gate.smsaero.ru/send/?user='.$login.'&password='.$password.'&to='.$tel.'&text='.$sms.'&from='.$who;
+
+		var_dump($text);
+		die;
+	}
 }

@@ -73,20 +73,20 @@
 			<br/>
 		</td>
 		<td>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Принял(а):<br/>
-			<b><?=$data->material_count?></b>
-		</td>
-		<td>
 			Материал забрал(а):
 		</td>
 	</tr>
 	<tr>
 		<td>
-			Номер материала: <b><?=$data->material_number?></b>
+			Номер материала: <b><?=$data->material_number?></b><br/>
+			<b><?=$data->material_count?></b>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div style="font-size: 11px;"><?=date('d.m.Y', $data->date_add)?></div>
 		</td>
 		<td>
 		</td>
@@ -117,33 +117,33 @@
 			№ исследования: <b><?=$data->number_a?></b>
 		</td>
 		<td width="50%" align="center" rowspan="2" id="left_row">
-			<br/>
 			<?=HTML::image('media/img/logo2.png', array('id' => 'print_img_'))?>
 			<br/>
 			ООО «КОД-МЕД-БИО»<br/>
-			г.Москва, Каширское шоссе д.23<br/>
-			ФГБНУ "РОНЦ им. Н.Н.Блохина", зона Б-5<br/>
 			<b>Лаборатория молекулярной патологии</b><br/>
 			Часы приема пациентов:<br/>
 			Пн.-Птн.: с 10.00 до 16.00<br/>
+			e-mail: labgenpat@mail.ru<br/>
 			<b>Тел. 8(499) 324-17-49</b><br/>
-			e-mail: labgenpat@mail.ru
-			<br/><br/>
-			ФИО: <b><?=$data->patient->fio?></b>
+			сайт: <b>labgenpat.ru</b><br/>
 			<br/>
+
 			Наименование исследования: <b>
 				<br/>
 				<?
-					for($i=0; $i < $analizis_count-1; $i++)
-					{
-						echo $analizis[$i]->title.", ";
-					}
-					if(isset($analizis[$i]))
-					{
-						echo $analizis[$i]->title;
-					}
+				for($i=0; $i < $analizis_count-1; $i++)
+				{
+					echo $analizis[$i]->title.", ";
+				}
+				if(isset($analizis[$i]))
+				{
+					echo $analizis[$i]->title;
+				}
 				?></b>
 			<br/><br/>
+
+			ФИО: <b><?=$data->patient->fio?></b>
+			<br/>
 			№ исследования: <b><?=$data->number_a?></b>
 			<br/>
 		</td>
@@ -151,9 +151,23 @@
 </table>
 
 <script type="text/javascript">
-	$(function(){
+	/*var is_chrome = function () {
+		return Boolean(window.chrome);
+	};
+
+	if(is_chrome) 
+	{
+		window.print();
+		setTimeout(function(){
+			window.close();}, 10000); 
+		//give them 10 seconds to print, then close
+	}
+	else
+	{
+		$(function(){
 		window.print();
 		self.close();
-	})
+		});
+	}*/
 </script>
 

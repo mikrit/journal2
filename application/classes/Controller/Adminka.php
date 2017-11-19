@@ -12,7 +12,7 @@ class Controller_Adminka extends Controller_BaseLK
 	
 	public function action_index()
 	{
-		$this->template->content = View::factory('adminka/index')->render();
+		$this->template->content = View::factory('BaseLK/adminka/index')->render();
 	}
 	
 	public function action_register()
@@ -63,7 +63,7 @@ Enjoy your work.';
 			}
 		}
 	
-		$view_user = View::factory('adminka/register');
+		$view_user = View::factory('BaseLK/adminka/register');
 		
 		$view_user->data = $data;
 		$view_user->errors = $errors;
@@ -76,7 +76,7 @@ Enjoy your work.';
 	{
 		$users = ORM::factory('user')->find_all();
 		
-		$view_users = View::factory('adminka/list_users');
+		$view_users = View::factory('BaseLK/adminka/list_users');
 		$view_users->users = $users;
 		
 		$this->template->content = $view_users->render();
@@ -135,7 +135,7 @@ Enjoy your work.';
 			}
 		}
 
-		$view_profile = View::factory('adminka/update_user');
+		$view_profile = View::factory('BaseLK/adminka/update_user');
 		$view_profile->id = $user->id;
 		$view_profile->data = $user;
 		$view_profile->message = $message;
@@ -149,7 +149,7 @@ Enjoy your work.';
     {
         $logs = ORM::factory('log')->find_all();
 
-        $view = View::factory('adminka/logs');
+        $view = View::factory('BaseLK/adminka/logs');
         $view->logs = $logs;
 
         $this->template->content = $view->render();

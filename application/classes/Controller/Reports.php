@@ -4,7 +4,7 @@ class Controller_Reports extends Controller_BaseLK
 {
 	public function action_index()
 	{
-		$this->template->content = View::factory('reports/index')->render();
+		$this->template->content = View::factory('BaseLK/reports/index')->render();
 	}
 
 	public function action_patients()
@@ -59,7 +59,7 @@ class Controller_Reports extends Controller_BaseLK
 			}
 		}
 
-		$view = View::factory('reports/patients');
+		$view = View::factory('BaseLK/reports/patients');
 
 		$view->data = $data;
 		$view->patients = $patients;
@@ -161,7 +161,7 @@ class Controller_Reports extends Controller_BaseLK
 		$status = $st[$data['status_id']];
 		$statuses = Form::select('status_id', $st, $data['status_id'], array('id' => 'statuses'));
 
-        $view = View::factory('reports/analysis');
+        $view = View::factory('BaseLK/reports/analysis');
 
         $view->data = $data;
         $view->numbers = $numbers;
@@ -225,7 +225,7 @@ class Controller_Reports extends Controller_BaseLK
             }
         }
 
-        $view = View::factory('reports/notes');
+        $view = View::factory('BaseLK/reports/notes');
 
         $view->data = $data;
         $view->numbers = $numbers;

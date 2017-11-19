@@ -6,7 +6,7 @@
 			<h2>Проверить анализ</h2>
 			<form id="search" class="form-signin" method="post">
 				<?=Form::input('ФИО', '', array('type' => 'text', 'id' => 'fio', 'placeholder' => 'ФИО', 'class' => 'form-control', 'required' => ''));?>
-				<?=Form::input('Номер анализа', '', array('type' => 'text', 'id' => 'number', 'placeholder' => 'Номер анализа', 'class' => 'form-control', 'required' => ''));?>
+				<?=Form::input('Номер анализа', '', array('type' => 'text', 'id' => 'number', 'placeholder' => '№ исследования', 'class' => 'form-control', 'required' => ''));?>
 				<?=Form::input('submit', 'Проверить',array('id' => 'check_analiz', 'type'=>'submit', 'class' => 'btn btn-primary ladda-button', 'data-style' => 'zoom-in'));?>
 			</form>
 		</div>

@@ -23,12 +23,49 @@
     <?=Html::script('media/js/login.js')?>
     <?=Html::script('media/js/spin.min.js')?>
     <?=Html::script('media/js/ladda.min.js')?>
+	<?=Html::script('media/js/tinymce/tinymce.min.js')?>
 
     <?=Html::script('media/bootstrap/js/bootstrap.min.js')?>
     <?=Html::script('media/bootstrap/js/bootstrap-markdown.js')?>
 
     <link rel="apple-touch-icon" href="media/img/cash.png">
     <link rel="icon" href="media/img/cash.ico">
+
+	<script type="text/javascript">
+		tinymce.init({
+			selector: "#comment",
+			language : 'ru',
+			width : 600,
+			height : 300,
+			plugins : "paste",
+			paste_use_dialog : false,
+			paste_auto_cleanup_on_paste : true,
+			paste_convert_headers_to_strong : false,
+			paste_strip_class_attributes : "all",
+			paste_remove_spans : true,
+			paste_remove_styles : true,
+			paste_retain_style_properties : "",
+			paste_text_sticky : true
+		});
+	</script>
+
+	<script type="text/javascript">
+		tinymce.init({
+			selector: "#notes",
+			language : 'ru',
+			width : 600,
+			height : 150,
+			plugins : "paste",
+			paste_use_dialog : false,
+			paste_auto_cleanup_on_paste : true,
+			paste_convert_headers_to_strong : false,
+			paste_strip_class_attributes : "all",
+			paste_remove_spans : true,
+			paste_remove_styles : true,
+			paste_retain_style_properties : "",
+			paste_text_sticky : true
+		});
+	</script>
 </head>
 
 <body>

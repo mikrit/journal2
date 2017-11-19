@@ -33,6 +33,10 @@
 			<td><b><?=$data->year?></b></td>
 		</tr>
 		<tr>
+			<td style="height: 25px;">Телефон:</td>
+			<td><b><?=$data->phone?></b></td>
+		</tr>
+		<tr>
 			<td style="height: 25px;">Контакты:</td>
 			<td><b><?=$data->contacts?></b></td>
 		</tr>

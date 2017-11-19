@@ -23,23 +23,26 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="right" colspan="3"><?=Form::input('submit', 'Обновить',array('id' => 'button', 'type'=>'submit'));?></td>
+			<td class="right" colspan="3">
+				<?=Form::input('submit', 'Обновить',array('id' => 'button', 'type'=>'submit', 'class' => 'btn btn-primary'));?>
+				<?=Form::input('sms', 'Отправить SMS',array('id' => 'sms', 'type'=>'button', 'class' => 'btn btn-success'));?>
+			</td>
 		</tr>
 		<tr>
 			<td>Номер анализа:</td>
-			<td colspan="2"><?=Form::input('number_a', $data['number_a'], array('class' => 'input'));?></td>
+			<td colspan="2"><?=Form::input('number_a', $data['number_a'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Номер материала:</td>
-			<td colspan="2"><?=Form::input('material_number', $data['material_number'], array('class' => 'input'));?></td>
+			<td colspan="2"><?=Form::input('material_number', $data['material_number'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Кол-во материала:</td>
-			<td colspan="2"><?=Form::input('material_count', $data['material_count'], array('class' => 'input'));?></td>
+			<td colspan="2"><?=Form::input('material_count', $data['material_count'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Метод исследования:</td>
-			<td colspan="2"><?=Form::select('method_id', $methods, $data['method_id']);?></td>
+			<td colspan="2"><?=Form::select('method_id', $methods, $data['method_id'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td rowspan="<?=ceil(count($analyzes)/2)+1?>">Исследования:</td>
@@ -70,27 +73,51 @@
 		</tr>
 		<tr>
 			<td>Развёрнутый диагноз:</td>
-			<td colspan="2"><?=Form::textarea('comment', $data['comment'], array('id' => 'comment'));?></td>
+			<td colspan="2"><?=Form::textarea('comment', $data['comment'], array('id' => 'comment', 'class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Примечания:</td>
-			<td colspan="2"><?=Form::textarea('notes', $data['notes'], array('id' => 'notes'));?></td>
+			<td colspan="2"><?=Form::textarea('notes', $data['notes'], array('id' => 'notes', 'class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Сотрудник 1:</td>
-			<td colspan="2"><?=Form::select('user1_id', $sings, $data['user1_id']);?></td>
+			<td colspan="2"><?=Form::select('user1_id', $sings, $data['user1_id'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Сотрудник 2:</td>
-			<td colspan="2"><?=Form::select('user2_id', $sings, $data['user2_id']);?></td>
+			<td colspan="2"><?=Form::select('user2_id', $sings, $data['user2_id'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td>Сотрудник 3:</td>
-			<td colspan="2"><?=Form::select('user3_id', $sings, $data['user3_id']);?></td>
+			<td colspan="2"><?=Form::select('user3_id', $sings, $data['user3_id'], array('class' => 'form-control'));?></td>
 		</tr>
 		<tr>
-			<td class="right" colspan="3"><?=Form::input('submit', 'Обновить',array('id' => 'button', 'type'=>'submit'));?></td>
+			<td class="right" colspan="3">
+				<?=Form::input('submit', 'Обновить',array('id' => 'button', 'type'=>'submit', 'class' => 'btn btn-primary'));?>
+				<?=Form::input('sms', 'Отправить SMS',array('id' => 'sms_2', 'type'=>'button', 'class' => 'btn btn-success'));?>
+			</td>
 		</tr>
 	</table>
 	<?=Form::close();?>
 </div>
+
+<script>
+	$('#sms, #sms_2').click(function()
+	{
+		var user_id = <?=$patient->id?>;
+		var num_id = <?=$id?>;
+
+		$.ajax({
+			type: "POST",
+			url: '/ajax/send_sms',
+			dataType: "json",
+			data: {
+				user_id: user_id,
+				num_id: num_id
+			},
+			success: function(result){
+				$('#status').html(result);
+			}
+		});
+	});
+</script>

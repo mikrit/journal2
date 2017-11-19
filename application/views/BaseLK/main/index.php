@@ -23,13 +23,13 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label  class="control-label col-xs-4">Номер анализа:</label>
+				<label class="control-label col-xs-4">Номер анализа:</label>
 				<div class="col-xs-8">
 					<?=Form::input('number_a', $data['number_a'], array('class' => 'form-control', 'type' => 'text'));?>
 				</div>
 			</div>
 			<div class="col-xs-12" style="text-align: right;padding-right:0;">
-				<?=Form::input('submit', 'Поиск',array('id' => 'button_search', 'type'=>'submit', 'class' => 'btn btn-primary'));?>
+				<?=Form::input('submit', 'Поиск', array('id' => 'button_search', 'type'=>'submit', 'class' => 'btn btn-primary'));?>
 			</div>
 		<?=Form::close();?>
 	</div>
