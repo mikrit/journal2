@@ -26,7 +26,7 @@
 	</div>
 </div>
 
-<table class="table table-striped table-bordered2">
+<table class="table table-striped">
 	<thead>
         <tr>
             <td colspan="7" style="text-align: right">

@@ -3,7 +3,7 @@
 <table id="table_print_top">
 	<tr>
 		<td width="10%">
-			<?=HTML::image('media/img/logo2.png', array('id' => 'print_img2'))?>
+			<?=HTML::image('media/img/logo_5.png', array('id' => 'print_img2'))?>
 		</td>
 		<td width="50%">
 			ООО «КОД-МЕД-БИО»<br/>

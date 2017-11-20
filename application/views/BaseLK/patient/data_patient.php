@@ -26,7 +26,7 @@
 		</tr>
 		<tr>
 			<td style="height: 25px;">Пол:</td>
-			<td><b><?=$data->sex==0?'Mужской':'Женский'?></b></td>
+			<td><b><?=$data->sex == 0 ? 'Mужской' : 'Женский'?></b></td>
 		</tr>
 		<tr>
 			<td style="height: 25px;">Год рождения:</td>
