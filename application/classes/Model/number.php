@@ -29,15 +29,15 @@ class Model_Number extends ORM
 			'foreign_key'	=> 'method_id',
 		),
 		'user1'		=> array(
-			'model'			=> 'user',
+			'model'			=> 'User',
 			'foreign_key'	=> 'user1_id',
 		),
 		'user2'		=> array(
-			'model'			=> 'user',
+			'model'			=> 'User',
 			'foreign_key'	=> 'user2_id',
 		),
 		'user3'		=> array(
-			'model'			=> 'user',
+			'model'			=> 'User',
 			'foreign_key'	=> 'user3_id',
 		),
 	);
