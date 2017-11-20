@@ -53,6 +53,7 @@ form {
     width: 1000px;
     margin: 0 auto;
     height: 100%;
+    font: 14px Verdana, Tahoma, Arial, Helvetica, sans-serif;
 }
 
 #print_img {

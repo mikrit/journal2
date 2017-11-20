@@ -50,6 +50,7 @@
 		<td>
 		</td>
 		<td>
+			Телефон: <b><?=$data->patient->phone?></b><br/>
 			Контакты: <b><?=$data->patient->contacts?></b>
 		</td>
 	</tr>
