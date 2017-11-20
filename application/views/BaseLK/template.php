@@ -24,6 +24,7 @@
     <?=Html::script('media/js/spin.min.js')?>
     <?=Html::script('media/js/ladda.min.js')?>
 	<?=Html::script('media/js/tinymce/tinymce.min.js')?>
+	<?=Html::script('media/js/project.js')?>
 
     <?=Html::script('media/bootstrap/js/bootstrap.min.js')?>
     <?=Html::script('media/bootstrap/js/bootstrap-markdown.js')?>

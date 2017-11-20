@@ -19,7 +19,7 @@
 			</tr>
 			<tr>
 				<td><label>Номер анализа:</label></td>
-				<td><?=Form::input('number_p', $data['number_p'], array('class' => 'form-control', 'type' => 'text'));?></td>
+				<td><?=Form::input('number_a', $data['number_a'], array('class' => 'form-control', 'type' => 'text'));?></td>
 			</tr>
 			<tr>
 				<td class="right" colspan="2">
