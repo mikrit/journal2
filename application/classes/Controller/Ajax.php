@@ -112,7 +112,7 @@ class Controller_Ajax extends Controller
 		}
 		else
 		{
-			echo 'Нет телефона';
+			echo 'Не вбит номер телефона';
 			return;
 		}
 
