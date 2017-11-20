@@ -6,7 +6,7 @@ class Controller_Adminka extends Controller_BaseLK
 	{
 		parent::__construct($request, $response);
 		
-		if(!ORM::factory('user', Auth::instance()->get_user()->id)->has('roles', ORM::factory('role', 2)))
+		if(!ORM::factory('user', Auth::instance()->get_user()->id)->has('roles', ORM::factory('Role', 2)))
 			$this->redirect('search');
 	}
 	
