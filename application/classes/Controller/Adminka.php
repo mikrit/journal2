@@ -28,7 +28,7 @@ class Controller_Adminka extends Controller_BaseLK
 		{
 			$user = ORM::factory('user');
 			
-			$post = Model_user::validation_n($_POST);
+			$post = Model_User::validation_n($_POST);
 			
 			$data = $_POST;
 			
@@ -100,11 +100,11 @@ Enjoy your work.';
 			if($_POST['prov'] == 1)
 			{
 				$data = $_POST;
-				$post = Model_user::validation_up1($_POST);
+				$post = Model_User::validation_up1($_POST);
 			}
 			elseif($_POST['prov'] == 2)
 			{
-				$post = Model_user::validation_up2($_POST);
+				$post = Model_User::validation_up2($_POST);
 			}
 			
 			if (!$post->check())
