@@ -4,7 +4,7 @@
 	<div id="title">Обновление данных пациента</div>
 
 	<div id="answer_e" class="error"></div>
-	<div id="answer" style="color: #00c2a1"></div>
+	<div id="answer" style="color: green"></div>
 
 	<?=Form::open('patient/update_analysis/'.$id, array('method'=>'post'));?>
 	<table class="t_form">
