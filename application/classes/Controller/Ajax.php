@@ -118,9 +118,9 @@ class Controller_Ajax extends Controller
 
 			$text = 'https://gate.smsaero.ru/send/?user='.$login.'&password='.$password.'&to='.$tel.'&text='.$sms.'&from='.$who;
 
-			$response =  Request::factory($text)->execute()->body();
+			//$response =  Request::factory($text)->execute()->body();
 
-			var_dump(array('error' => 0, 'res' => '123'));
+			var_dump(json_encode(array('error' => 0, 'res' => '123')));
 			//var_dump($response);
 			die;
 		}

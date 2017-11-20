@@ -114,7 +114,7 @@
 		$.ajax({
 			type: "POST",
 			url: '/ajax/send_sms',
-			//dataType: "json",
+			dataType: "json",
 			data: {
 				user_id: user_id,
 				num_id: num_id
