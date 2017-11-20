@@ -121,9 +121,9 @@ class Controller_Ajax extends Controller
 			//$response =  Request::factory($text)->execute()->body();
 
 			header('Content-Type: text/json; charset=utf-8');
-			return json_encode(array('error' => 0, 'res' => '123'));
+			echo json_encode(array('error' => 0, 'res' => '123'));
 			//var_dump($response);
-			die;
+			die();
 		}
 		else
 		{
