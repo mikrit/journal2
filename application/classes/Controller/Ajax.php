@@ -121,6 +121,7 @@ class Controller_Ajax extends Controller
 			//$response =  Request::factory($text)->execute()->body();
 
 			var_dump(json_encode(array('error' => 0, 'res' => '123')));
+			return json_encode(array('error' => 0, 'res' => '123'));
 			//var_dump($response);
 			die;
 		}
