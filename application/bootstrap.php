@@ -144,7 +144,7 @@ Kohana::modules(array(
  * uncomment the line below and define a preferrably long salt.
  */
 
-Cookie::$salt = 'eqw345ewrq324ew';
+Cookie::$salt = '2435ewt2345erw23gthgk';
 
 Route::set('about', 'about')
 	->defaults(array(
