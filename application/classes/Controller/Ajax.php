@@ -109,6 +109,20 @@ class Controller_Ajax extends Controller
 		if(isset($str[0][0]) && isset($str[0][1]) && isset($str[0][2]) && isset($str[0][3]))
 		{
 			$tel = $str[0][0].$str[0][1].$str[0][2].$str[0][3];
+
+			$number = ORM::factory('number', $_POST['num_id']);
+			$num = $number->number_a;
+			$sms = 'Исследование №'.$num.' готово';
+
+			$who = 'КОД-МЕД-БИО';
+
+			$text = 'https://gate.smsaero.ru/send/?user='.$login.'&password='.$password.'&to='.$tel.'&text='.$sms.'&from='.$who;
+
+			$response =  Request::factory($text)->execute()->body();
+
+			var_dump(array('error' => 0, 'res' => '123'));
+			//var_dump($response);
+			die;
 		}
 		else
 		{
@@ -116,17 +130,6 @@ class Controller_Ajax extends Controller
 			return;
 		}
 
-		$number = ORM::factory('number', $_POST['num_id']);
-		$num = $number->number_a;
-		$sms = 'Исследование №'.$num.' готово';
 
-		$who = 'КОД-МЕД-БИО';
-
-		$text = 'https://gate.smsaero.ru/send/?user='.$login.'&password='.$password.'&to='.$tel.'&text='.$sms.'&from='.$who;
-
-		$response =  Request::factory($text)->execute()->body();
-
-		var_dump($response);
-		die;
 	}
 }
