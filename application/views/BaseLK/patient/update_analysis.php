@@ -3,7 +3,8 @@
 <div class="t-center">
 	<div id="title">Обновление данных пациента</div>
 
-	<div id="answer" class="error"></div>
+	<div id="answer_e" class="error"></div>
+	<div id="answer" style="color: #00c2a1"></div>
 
 	<?=Form::open('patient/update_analysis/'.$id, array('method'=>'post'));?>
 	<table class="t_form">
@@ -121,8 +122,16 @@
 			}
 		}).done(function(data)
 		{
-			$('#answer').html(data);
-			return;
+			if(data.error == 1)
+			{
+				$('#answer_e').html(data.res);
+				return;
+			}
+			else
+			{
+				$('#answer').html(data.res);
+				return;
+			}
 		});
 	});
 </script>

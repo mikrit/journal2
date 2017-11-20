@@ -119,15 +119,15 @@ class Controller_Ajax extends Controller
 			$text = 'https://gate.smsaero.ru/send/?user='.$login.'&password='.$password.'&to='.$tel.'&text='.$sms.'&from='.$who;
 
 			//$response =  Request::factory($text)->execute()->body();
+			//var_dump($response);
 
 			header('Content-Type: text/json; charset=utf-8');
-			echo json_encode(array('error' => 0, 'res' => '123'));
-			//var_dump($response);
-			die();
+			echo json_encode(array('error' => 0, 'res' => 'Сообщение отправлено'));
+			return;
 		}
 		else
 		{
-			echo 'Не вбит номер телефона';
+			echo json_encode(array('error' => 1, 'res' => 'Не вбит номер телефона'));
 			return;
 		}
 
