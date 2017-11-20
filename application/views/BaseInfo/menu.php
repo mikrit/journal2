@@ -4,7 +4,7 @@
 
 <ul class="nav navbar-nav">
 	<li <?if($request[0] == ''){echo 'class="active"';}?>>
-		<?=HTML::anchor('/', 'Анализы'); ?>
+		<?HTML::anchor('/', 'Анализы'); ?>
 	</li>
 	<li <?if($request[0] == 'about'){echo 'class="active"';}?>>
 		<?HTML::anchor('about', 'О лаборатории'); ?>

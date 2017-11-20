@@ -2,28 +2,28 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
 
-        <title>Анализы</title>
+		<title>Анализы</title>
 
-        <?=Html::style('media/bootstrap/css/bootstrap.min.css')?>
-        <?=Html::style('media/css/sticky-footer-navbar.css')?>
-        <?=Html::style('media/css/ladda-themeless.min.css')?>
+		<?=Html::style('media/bootstrap/css/bootstrap.min.css')?>
+		<?=Html::style('media/css/sticky-footer-navbar.css')?>
+		<?=Html::style('media/css/ladda-themeless.min.css')?>
 
-        <?=Html::script('media/js/jquery.js')?>
-        <?=Html::script('media/js/login.js')?>
-        <?=Html::script('media/js/spin.min.js')?>
-        <?=Html::script('media/js/ladda.min.js')?>
-        <?=Html::script('media/bootstrap/js/bootstrap.min.js')?>
+		<?=Html::script('media/js/jquery.js')?>
+		<?=Html::script('media/js/login.js')?>
+		<?=Html::script('media/js/spin.min.js')?>
+		<?=Html::script('media/js/ladda.min.js')?>
+		<?=Html::script('media/bootstrap/js/bootstrap.min.js')?>
 
-        <link rel="apple-touch-icon" href="media/img/cash.png">
-        <link rel="icon" href="media/img/cash.ico">
-    </head>
+		<link rel="apple-touch-icon" href="media/img/cash.png">
+		<link rel="icon" href="media/img/cash.ico">
+	</head>
 
     <body>
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container col-">
             <?=$content?>
         </div>
 

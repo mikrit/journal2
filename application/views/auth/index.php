@@ -8,7 +8,7 @@
 		<form class="form-signin" method="post" action="rrr.php">
 			<?=Form::input('login', '', array('type' => 'text', 'id' => 'login', 'placeholder' => 'Ваш логин', 'class' => 'form-control', 'required' => ''));?>
 			<?=Form::password('password', '', array('type' => 'password', 'id' => 'password', 'placeholder' => 'Ваш пароль', 'class' => 'form-control', 'required' => ''));?>
-			<?=HTML::anchor('#', 'Войти', array('id' => 'login_ajax', 'class' => 'btn btn-lg btn-primary btn-block btn-signin ladda-button', 'data-style' => 'zoom-in'));?>
+			<?=HTML::anchor('#', 'Войти', array('id' => 'login_ajax', 'class' => 'btn btn-primary ladda-button', 'data-style' => 'zoom-in'));?>
 		</form>
 		<div class="text-center">
 			<a href="#" data-toggle="modal" data-target="#myModal2">
