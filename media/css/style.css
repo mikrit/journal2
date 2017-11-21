@@ -77,3 +77,7 @@ form {
     height: 80px;
     width: 70px;
 }
+
+#table_print p {
+    margin-top: 0px;
+}
