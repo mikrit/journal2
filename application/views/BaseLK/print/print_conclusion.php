@@ -132,7 +132,7 @@
 </table>
 
 <script type="text/javascript">
-/*	var is_chrome = function () { return Boolean(window.chrome); }
+	var is_chrome = function () { return Boolean(window.chrome); }
 	if(is_chrome) 
 	{
 		window.print();
@@ -146,5 +146,5 @@
 		window.print();
 		self.close();
 		});
-	}*/
+	}
 </script>
