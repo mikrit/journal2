@@ -57,6 +57,10 @@
 	<div class="col-md-8">
 		<div class="jumbotron card">
 			<h2>Проверить анализ</h2>
+			<div id="error_fio" class="alert alert-danger" role="alert" style="display: none">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only">Error:</span> Формат ФИО: "Фамилия И.О."
+			</div>
 			<form id="search" class="form-signin" method="post">
 				<?=Form::input('ФИО', '', array('type' => 'text', 'id' => 'fio', 'placeholder' => 'ФИО', 'class' => 'form-control', 'required' => ''));?>
 				<?=Form::input('Номер анализа', '', array('type' => 'text', 'id' => 'number', 'placeholder' => '№ исследования', 'class' => 'form-control', 'required' => ''));?>
@@ -86,6 +90,8 @@
 		$('#fio').css({'border-color': '#ccc'});
 		$('#number').css({'border-color': '#ccc'});
 
+		$('#error_fio').hide();
+
 		if(fio == '' || number == '')
 		{
 			if(fio == '')
@@ -102,19 +108,29 @@
 		}
 		else
 		{
-			$.ajax({
-				type: "POST",
-				url: "ajax/get_status",
-				dataType: "json",
-				data: {
-					fio: fio,
-					number: number
-				},
-				success: function(result){
-					l.stop();
-					$('#status').html(result);
-				}
-			});
+			var pat = /[А-ЯЁ][а-яё]+\s[А-ЯЁ]\.[А-ЯЁ]\./;
+
+			if(pat.test(fio) == false)
+			{
+				$('#error_fio').show();
+				l.stop();
+			}
+			else
+			{
+				$.ajax({
+					type: "POST",
+					url: "ajax/get_status",
+					dataType: "json",
+					data: {
+						fio: fio,
+						number: number
+					},
+					success: function(result){
+						l.stop();
+						$('#status').html(result);
+					}
+				});
+			}
 		}
 
 		return false;
