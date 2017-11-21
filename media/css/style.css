@@ -78,6 +78,6 @@ form {
     width: 70px;
 }
 
-#table_print p {
-    margin-top: 0px;
+.table_print p {
+    margin-top: 0;
 }
