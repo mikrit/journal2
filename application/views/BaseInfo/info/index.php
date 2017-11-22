@@ -59,7 +59,7 @@
 			<h2>Проверить анализ</h2>
 			<div id="error_fio" class="alert alert-danger" role="alert" style="display: none">
 				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-				<span class="sr-only">Error:</span> Формат ФИО: "Фамилия И.О."
+				<span class="sr-only">Error:</span> Проверьте правильность написания ФИО
 			</div>
 			<form id="search" class="form-signin" method="post">
 				<?=Form::input('ФИО', '', array('type' => 'text', 'id' => 'fio', 'placeholder' => 'ФИО', 'class' => 'form-control', 'required' => ''));?>
@@ -108,7 +108,7 @@
 		}
 		else
 		{
-			var pat = /[А-ЯЁ][а-яё]+\s[А-ЯЁ]\.[А-ЯЁ]\./;
+			var pat = /[А-ЯЁ][а-яё\-]+\s(\-?[А-ЯЁ]\.|[А-ЯЁ]-[А-ЯЁ]\.){2,}$/;
 
 			if(pat.test(fio) == false)
 			{
