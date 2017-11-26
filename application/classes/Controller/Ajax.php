@@ -118,11 +118,11 @@ class Controller_Ajax extends Controller
 
 			$text = 'https://gate.smsaero.ru/send/?user='.$login.'&password='.$password.'&to='.$tel.'&text='.$sms.'&from='.$who;
 
-			//$response =  Request::factory($text)->execute()->body();
+			Request::factory($text)->execute()->body();
 			//var_dump($response);
 
 			header('Content-Type: text/json; charset=utf-8');
-			echo json_encode(array('error' => 0, 'res' => 'Сообщение отправлено', 'text' => $text));
+			echo json_encode(array('error' => 0, 'res' => 'Сообщение отправлено'));
 			return;
 		}
 		else

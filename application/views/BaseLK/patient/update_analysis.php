@@ -5,7 +5,6 @@
 
 	<div id="answer_e" class="error"></div>
 	<div id="answer" style="color: green"></div>
-	<div id="answer_t"></div>
 
 	<?=Form::open('patient/update_analysis/'.$id, array('method'=>'post'));?>
 	<table class="t_form">
@@ -131,7 +130,6 @@
 			else
 			{
 				$('#answer').html(data.res);
-				$('#answer_t').html(data.text);
 				return;
 			}
 		});
