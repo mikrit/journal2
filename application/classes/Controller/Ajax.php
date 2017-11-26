@@ -114,7 +114,7 @@ class Controller_Ajax extends Controller
 			$num = $number->number_a;
 			$sms = 'Исследование №'.$num.' готово';
 
-			$who = 'КОД-МЕД-БИО';
+			$who = 'SMS_61849';
 
 			$text = 'https://gate.smsaero.ru/send/?user='.$login.'&password='.$password.'&to='.$tel.'&text='.$sms.'&from='.$who;
 
