@@ -130,7 +130,5 @@ class Controller_Ajax extends Controller
 			echo json_encode(array('error' => 1, 'res' => 'Не вбит номер телефона'));
 			return;
 		}
-
-
 	}
 }
