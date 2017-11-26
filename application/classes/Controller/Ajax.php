@@ -99,8 +99,8 @@ class Controller_Ajax extends Controller
 
 	public function action_send_sms()
 	{
-		$login = 'labgenpat';
-		$password = '12345';
+		$login = 'golulen_86@mail.ru';
+		$password = '1MaIXTuu95Wz6QsuQG2YpdLlTCA';
 
 		$user = ORM::factory('patient', $_POST['user_id']);
 		preg_match_all('/\d+/', $user->phone, $str);
@@ -122,7 +122,7 @@ class Controller_Ajax extends Controller
 			//var_dump($response);
 
 			header('Content-Type: text/json; charset=utf-8');
-			echo json_encode(array('error' => 0, 'res' => 'Сообщение отправлено'));
+			echo json_encode(array('error' => 0, 'res' => 'Сообщение отправлено', 'text' => $text));
 			return;
 		}
 		else
