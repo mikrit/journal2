@@ -99,7 +99,7 @@ class Controller_Ajax extends Controller
 
 	public function action_send_sms()
 	{
-		$login = 'golulen_86@mail.ru';
+		$login = 'labgenpat@mail.ru';
 		$password = '1MaIXTuu95Wz6QsuQG2YpdLlTCA';
 
 		$user = ORM::factory('patient', $_POST['user_id']);
