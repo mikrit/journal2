@@ -14,8 +14,6 @@ class Controller_BaseLK extends Controller_Template
 		{
 			$this->user_id = Auth::instance()->get_user()->id;
 		}
-
-		$dd = 7;
 	}
 
 	public function before()
@@ -28,9 +26,22 @@ class Controller_BaseLK extends Controller_Template
 		}
 
 		$menu = View::factory('BaseLK/menu');
+
 		$user_id = Auth::instance()->get_user()->id;
 		$this->admin = ORM::factory('user', $user_id)->roles->where('name', '=', 'admin')->find();
 
+		$url = 'https://gate.smsaero.ru/v2/balance';
+
+		$request = Request::factory($url);
+
+		$request->client()->options(array(
+			CURLOPT_SSL_VERIFYPEER => FALSE,
+			CURLOPT_USERPWD => "labgenpat@mail.ru:1MaIXTuu95Wz6QsuQG2YpdLlTCA"
+		));
+		$answer = $request->execute()->body();
+		$balance = json_decode($answer)->data->balance;
+
+		$menu->balance = $balance;
 		$menu->admin = $this->admin->loaded();
 		$this->template->menu = $menu->render();
 		$this->template->content = '';

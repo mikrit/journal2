@@ -6,7 +6,6 @@
 	<div id="answer_e" class="error"></div>
 	<div id="answer" style="color: green"></div>
 
-	<div id="balance" style="text-align: right"><b>Баланс: <?=$balance?></b></div>
 	<?=Form::open('patient/update_analysis/'.$id, array('method'=>'post'));?>
 	<table class="t_form">
 		<?php if(count($errors)):?>
@@ -126,7 +125,6 @@
 			if(data.error == 1)
 			{
 				$('#answer_e').html(data.res);
-
 				return;
 			}
 			else
