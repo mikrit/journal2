@@ -79,7 +79,7 @@ class Controller_Ajax extends Controller
 			$numbers = $patient->numbers->find_all();
 			foreach($numbers as $num)
 			{
-				if($num->number_a == $number)
+				if(trim($num->number_a) == $number)
 				{
 					$status = $num->status;
 					$flag = 1;
