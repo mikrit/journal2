@@ -341,7 +341,7 @@ class Controller_Patient extends Controller_BaseLK
 			$this->redirect('/');
 		}
 
-        $patient = ORM::factory('patient', $data->patient_id);
+		$patient = ORM::factory('patient', $data->patient_id);
 
 		$errors = array();
 		$message = "";
@@ -431,6 +431,18 @@ class Controller_Patient extends Controller_BaseLK
 			}
 		}
 
+		$url = 'https://gate.smsaero.ru/v2/balance';
+
+		$request = Request::factory($url);
+
+		$request->client()->options(array(
+			CURLOPT_SSL_VERIFYPEER => FALSE,
+			CURLOPT_USERPWD => "labgenpat@mail.ru:1MaIXTuu95Wz6QsuQG2YpdLlTCA"
+		));
+		$answer = $request->execute()->body();
+
+		$balance = json_decode($answer)->data->balance;
+
 		$view = View::factory('BaseLK/patient/update_analysis');
 
 		$view->errors = $errors;
@@ -442,6 +454,7 @@ class Controller_Patient extends Controller_BaseLK
 		$view->methods = $methods;
 		$view->sings = $sings;
 		$view->patient = $patient;
+		$view->balance = $balance;
 
 		$this->template->content = $view->render();
 	}

@@ -6,6 +6,7 @@
 	<div id="answer_e" class="error"></div>
 	<div id="answer" style="color: green"></div>
 
+	<div id="balance" style="text-align: right"><b>Баланс: <?=$balance?></b></div>
 	<?=Form::open('patient/update_analysis/'.$id, array('method'=>'post'));?>
 	<table class="t_form">
 		<?php if(count($errors)):?>
@@ -19,10 +20,10 @@
 		<tr>
 			<td class="right" colspan="3">
 				<div id="edit">
-                    <?=Html::anchor('patient/data_patient/'.$patient->id, $patient->fio)?>
-                    |
-                    <?=Html::anchor('patient/data_analysis/'.$id, 'Назад')?>
-                </div>
+					<?=Html::anchor('patient/data_patient/'.$patient->id, $patient->fio)?>
+					|
+					<?=Html::anchor('patient/data_analysis/'.$id, 'Назад')?>
+				</div>
 			</td>
 		</tr>
 		<tr>
@@ -125,10 +126,12 @@
 			if(data.error == 1)
 			{
 				$('#answer_e').html(data.res);
+
 				return;
 			}
 			else
 			{
+				$('#balance').html('<b>Баланс: '+data.balance+'</b>');
 				$('#answer').html(data.res);
 				return;
 			}

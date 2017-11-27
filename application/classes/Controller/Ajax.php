@@ -118,11 +118,27 @@ class Controller_Ajax extends Controller
 
 			$text = 'https://gate.smsaero.ru/send/?user='.$login.'&password='.$password.'&to='.$tel.'&text='.$sms.'&from='.$who;
 
-			Request::factory($text)->execute()->body();
-			//var_dump($response);
+			$request = Request::factory($text);
+
+			$request->client()->options(array(
+				CURLOPT_SSL_VERIFYPEER => FALSE
+			));
+			$request->execute()->body();
+
+			$url = 'https://gate.smsaero.ru/v2/balance';
+
+			$request = Request::factory($url);
+
+			$request->client()->options(array(
+				CURLOPT_SSL_VERIFYPEER => FALSE,
+				CURLOPT_USERPWD => "labgenpat@mail.ru:1MaIXTuu95Wz6QsuQG2YpdLlTCA"
+			));
+			$answer = $request->execute()->body();
+
+			$balance = json_decode($answer)->data->balance;
 
 			header('Content-Type: text/json; charset=utf-8');
-			echo json_encode(array('error' => 0, 'res' => 'Сообщение отправлено'));
+			echo json_encode(array('error' => 0, 'res' => 'Сообщение отправлено', 'balance' => $balance));
 			return;
 		}
 		else
