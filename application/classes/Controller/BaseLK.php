@@ -14,6 +14,10 @@ class Controller_BaseLK extends Controller_Template
 		{
 			$this->user_id = Auth::instance()->get_user()->id;
 		}
+		else
+		{
+			$this->redirect('/');
+		}
 	}
 
 	public function before()
