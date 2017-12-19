@@ -24,7 +24,7 @@ class Controller_Data extends Controller_BaseLK
 
         if ($_POST)
         {
-            $post = Model_Analysis::validation_analysis($_POST);
+            $post = Validation::factory($_POST)->rule('title', 'not_empty'); //Model_Analysis::validation_analysis($_POST);
             $data = $_POST;
 
             if (!$post->check())
