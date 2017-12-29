@@ -109,7 +109,7 @@ class Controller_Data extends Controller_BaseLK
 
         if ($_POST)
         {
-            $post = Model_Status::validation_status($_POST);
+            $post = Validation::factory($_POST)->rule('status', 'not_empty');
             $data = $_POST;
 
             if (!$post->check())
@@ -195,7 +195,7 @@ class Controller_Data extends Controller_BaseLK
 
 		if ($_POST)
 		{
-			$post = Model_Method::validation_method($_POST);
+			$post =  Validation::factory($_POST)->rule('title', 'not_empty');
 			$data = $_POST;
 
 			if (!$post->check())
