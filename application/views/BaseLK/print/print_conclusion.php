@@ -96,7 +96,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-size: 14px;">
+		<td style="font-size: 19px;">
 			<?=$data->comment?>
 		</td>
 	</tr>
