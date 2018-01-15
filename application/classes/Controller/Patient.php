@@ -223,6 +223,7 @@ class Controller_Patient extends Controller_BaseLK
 		$data['user2_id'] = 0;
 		$data['user3_id'] = 0;
 		$data['status'] = 1;
+		$data['sms'] = 0;
 
 		$analyzes = Helper::get_list_orm('analysis', 'title');
 		$statuses = Helper::get_list_orm('status', 'status');
@@ -363,6 +364,14 @@ class Controller_Patient extends Controller_BaseLK
 			$post = Model_Number::validation_number($_POST);
 
 			$data2 = $_POST;
+			if($data->sms == NULL || $data->sms == 0)
+			{
+				$data2['sms'] = 0;
+			}
+			else
+			{
+				$data2['sms'] = 1;
+			}
 
 			if (!$post->check())
 			{
