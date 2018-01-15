@@ -95,6 +95,10 @@
 			<td style="height: 25px;">Примечания:</td>
 			<td><b><?=$data->notes?></b></td>
 		</tr>
+		<tr>
+			<td style="height: 25px;">SMS:</td>
+			<td><b><?=$data->sms == NULL || $data->sms == 0 ? '' : 'Отправлено'?></b></td>
+		</tr>
 	</table>
 	<br/><br/><br/>
 

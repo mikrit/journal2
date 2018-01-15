@@ -6,6 +6,8 @@
 	<div id="answer_e" class="error"></div>
 	<div id="answer" style="color: green"></div>
 
+	<?=$data['sms'] == NULL || $data['sms'] == 0 ? '' : '<div style="color: green"><b>SMS Отправлено</b></div>'?>
+
 	<?=Form::open('patient/update_analysis/'.$id, array('method'=>'post'));?>
 	<table class="t_form">
 		<?php if(count($errors)):?>

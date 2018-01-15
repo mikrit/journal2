@@ -99,13 +99,14 @@ class Controller_Ajax extends Controller
 
 	public function action_send_sms()
 	{
+		$patient = ORM::factory('number', $_POST['num_id']);
+
 		$login = 'labgenpat@mail.ru';
 		$password = '1MaIXTuu95Wz6QsuQG2YpdLlTCA';
 
 		$user = ORM::factory('patient', $_POST['user_id']);
 		preg_match_all('/\d+/', $user->phone, $str);
 
-		$tel = '';
 		if(isset($str[0][0]) && isset($str[0][1]) && isset($str[0][2]) && isset($str[0][3]))
 		{
 			$tel = $str[0][0].$str[0][1].$str[0][2].$str[0][3];
@@ -136,6 +137,9 @@ class Controller_Ajax extends Controller
 			$answer = $request->execute()->body();
 
 			$balance = json_decode($answer)->data->balance;
+
+			$patient->sms = 1;
+			$patient->save();
 
 			header('Content-Type: text/json; charset=utf-8');
 			echo json_encode(array('error' => 0, 'res' => 'Сообщение отправлено', 'balance' => $balance));
