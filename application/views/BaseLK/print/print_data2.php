@@ -96,7 +96,7 @@
 
 <table class="table_print" id="border">
 	<tr>
-		<td width="50%" align="center" id="border_right">
+		<td width="49%" align="center" id="border_right">
 			<br/>
 			<?=HTML::image('media/img/logo_5.png', array('id' => 'print_img'))?>
 			<br/>
@@ -117,6 +117,7 @@
 			<br/><br/>
 			№ исследования: <b><?=$data->number_a?></b>
 		</td>
+		<td width="1%" style="border-left: 1px dashed;"></td>
 		<td width="50%" align="left" rowspan="2" id="left_row">
 			<br/>
 			<div style="float: left; margin-right: 5px;">
@@ -165,7 +166,7 @@
 </table>
 
 <script type="text/javascript">
-	var is_chrome = function () {
+	/*var is_chrome = function () {
 		return Boolean(window.chrome);
 	};
 
@@ -182,5 +183,5 @@
 			window.print();
 			self.close();
 		});
-	}
+	}*/
 </script>
