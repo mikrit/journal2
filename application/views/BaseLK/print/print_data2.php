@@ -166,7 +166,7 @@
 </table>
 
 <script type="text/javascript">
-	/*var is_chrome = function () {
+	var is_chrome = function () {
 		return Boolean(window.chrome);
 	};
 
@@ -183,5 +183,5 @@
 			window.print();
 			self.close();
 		});
-	}*/
+	}
 </script>
