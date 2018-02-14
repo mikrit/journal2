@@ -151,7 +151,9 @@
 			<br/>
 			ФИО: <b><?=$data->patient->fio?></b>
 			<br/>
+			<br/>
 			Сумма: ___________________
+			<br/>
 			<br/>
 			<table style="float: left;border: 1px solid black;">
 				<tr>
@@ -166,7 +168,7 @@
 </table>
 
 <script type="text/javascript">
-	var is_chrome = function () {
+	/*var is_chrome = function () {
 		return Boolean(window.chrome);
 	};
 
@@ -183,5 +185,5 @@
 			window.print();
 			self.close();
 		});
-	}
+	}*/
 </script>
