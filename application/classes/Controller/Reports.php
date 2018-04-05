@@ -233,4 +233,76 @@ class Controller_Reports extends Controller_BaseLK
 
         $this->template->content = $view->render();
     }
+
+	public function action_status()
+	{
+		$_count = ORM::factory('number');
+		$numbers = ORM::factory('number');
+
+		$count = -1;
+
+		$data['to'] = time();
+		$data['from'] = time();
+		$data['status'] = '';
+
+		$numbers = ORM::factory('number');
+
+		$statuses = array(
+			1 => 'Зарегистрирован',
+			2 => 'Материал на отборе',
+			3 => 'В работе',
+			4 => 'Готов',
+			5 => 'Отказ пациента',
+			6 => 'Отказ по состоянию материала',
+			7 => 'Отправлен пациенту',
+			8 => 'Повтор',
+			9 => 'Особый случай',
+			10 => 'Договор',
+			11 => 'ДМС',
+		);
+
+		if ($_POST)
+		{
+			$data = $_POST;
+
+			$a = explode("-", $_POST['to']);
+			if($a[0] != '')
+			{
+				$_POST['to'] = mktime(0, 0, 0, $a[1], $a[2], $a[0]);
+			}
+			else
+			{
+				$_POST['to'] = NULL;
+			}
+
+			$a = explode("-", $_POST['from']);
+			if($a[0] != '')
+			{
+				$_POST['from'] = mktime(23, 59, 59, $a[1], $a[2], $a[0]);
+			}
+			else
+			{
+				$_POST['from'] = NULL;
+			}
+
+			if($_POST['to'] == NULL || $_POST['from'] == NULL)
+			{
+				$errors = array(0 => 'Одна из дат не заполнена');
+			}
+			else
+			{
+				$numbers = $numbers->where('date_add', '>=', $_POST['to'])->and_where('date_add', '<=', $_POST['from'])->and_where('status', '=', $_POST['status'])->find_all();
+				$count = $_count->where('date_add', '>=', $_POST['to'])->and_where('date_add', '<=', $_POST['from'])->and_where('status', '=', $_POST['status'])->count_all();
+			}
+		}
+
+		$view = View::factory('BaseLK/reports/status');
+
+		$view->data = $data;
+		$view->statuses = $statuses;
+		$view->count = $count;
+		$view->numbers = $numbers;
+
+		$this->template->content = $view->render();
+	}
 }

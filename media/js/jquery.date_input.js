@@ -26,6 +26,12 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 */
 
+jQuery.browser = {};
+jQuery.browser.mozilla=/mozilla/.test(navigator.userAgent.toLowerCase())&&!/webkit/.test(navigator.userAgent.toLowerCase());
+jQuery.browser.webkit=/webkit/.test(navigator.userAgent.toLowerCase());
+jQuery.browser.opera=/opera/.test(navigator.userAgent.toLowerCase());
+jQuery.browser.msie=/msie/.test(navigator.userAgent.toLowerCase());
+
 DateInput = (function($) { 
 
 function DateInput(el, opts) {

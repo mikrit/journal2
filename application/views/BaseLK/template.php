@@ -3,34 +3,35 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-    <title>Анализы</title>
+	<title>Анализы</title>
 
-    <?=Html::style('media/bootstrap/css/bootstrap.min.css')?>
-    <?=Html::style('media/bootstrap/css/bootstrap-markdown.min.css')?>
+	<?=Html::style('media/bootstrap/css/bootstrap.min.css')?>
+	<?=Html::style('media/bootstrap/css/bootstrap-markdown.min.css')?>
 
-    <?=Html::style('media/css/sticky-footer-navbar.css')?>
-    <?=Html::style('media/css/ladda-themeless.min.css')?>
-    <?=Html::style('media/css/style.css')?>
-    <?=Html::style('media/css/date_input.css')?>
+	<?=Html::style('media/css/sticky-footer-navbar.css')?>
+	<?=Html::style('media/css/ladda-themeless.min.css')?>
+	<?=Html::style('media/css/style.css')?>
+	<?=Html::style('media/css/date_input.css')?>
 
-    <?=Html::script('media/js/jquery.js')?>
-    <?=Html::script('media/js/login.js')?>
-    <?=Html::script('media/js/spin.min.js')?>
-    <?=Html::script('media/js/ladda.min.js')?>
+	<?=Html::script('media/js/jquery.js')?>
+	<?=Html::script('media/js/jquery.date_input.js')?>
+	<?=Html::script('media/js/login.js')?>
+	<?=Html::script('media/js/spin.min.js')?>
+	<?=Html::script('media/js/ladda.min.js')?>
 	<?=Html::script('media/js/tinymce/tinymce.min.js')?>
 	<?=Html::script('media/js/project.js')?>
 
-    <?=Html::script('media/bootstrap/js/bootstrap.min.js')?>
-    <?=Html::script('media/bootstrap/js/bootstrap-markdown.js')?>
+	<?=Html::script('media/bootstrap/js/bootstrap.min.js')?>
+	<?=Html::script('media/bootstrap/js/bootstrap-markdown.js')?>
 
-    <link rel="apple-touch-icon" href="media/img/cash.png">
-    <link rel="icon" href="media/img/cash.ico">
+	<link rel="apple-touch-icon" href="media/img/cash.png">
+	<link rel="icon" href="media/img/cash.ico">
 
 	<script type="text/javascript">
 		tinymce.init({
@@ -70,10 +71,20 @@
 			paste_text_sticky : true
 		});
 	</script>
+
+	<style>
+		#printable { display: none; }
+
+		@media print
+		{
+			#non-printable { display: none; }
+			#printable { display: block; }
+		}
+	</style>
 </head>
 
 <body>
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div id="non-printable" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -99,7 +110,7 @@
     <div class="footer-inner">
         <div class="container">
             <div class="row">
-                <p class="text-muted text-center"><small><a href="http://www.ai-tech.ru">ai-tech.ru</a> &copy;2014<?=(date('Y') != 2014) ? '-'.date('Y') : ''?> All Rights Reserved.</small></p>
+                <p id="non-printable" class="text-muted text-center"><small><a href="http://www.ai-tech.ru">ai-tech.ru</a> &copy;2014<?=(date('Y') != 2014) ? '-'.date('Y') : ''?> All Rights Reserved.</small></p>
             </div>
         </div>
     </div>

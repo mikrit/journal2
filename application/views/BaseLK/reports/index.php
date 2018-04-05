@@ -13,6 +13,8 @@
 			<br/>
 			<?=Html::anchor('reports/notes', 'По примечаниям');?>
 			<br/>
+			<?=Html::anchor('reports/status', 'По статусу готовности');?>
+			<br/>
 		</td>
 	</tr>
 </table>
