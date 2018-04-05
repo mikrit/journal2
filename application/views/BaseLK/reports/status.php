@@ -37,10 +37,10 @@
 	<table id="non-printable" class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th width="5%">
+				<th width="4%">
 					№
 				</th>
-				<th width="5%">
+				<th width="10%">
 					Статус
 				</th>
 				<th width="10%">
@@ -55,10 +55,10 @@
 				<th width="10%">
 					Дата приёма
 				</th>
-				<th width="20%">
+				<th width="18%">
 
 				</th>
-				<th width="20%">
+				<th width="18%">
 
 				</th>
 			</tr>
@@ -98,10 +98,10 @@
 	<table id="printable" class="table table-striped table-bordered">
 		<thead>
 		<tr>
-			<th width="5%">
+			<th width="4%">
 				№
 			</th>
-			<th width="5%">
+			<th width="10%">
 				Статус
 			</th>
 			<th width="10%">
@@ -116,10 +116,10 @@
 			<th width="10%">
 				Дата приёма
 			</th>
-			<th width="20%">
+			<th width="18%">
 
 			</th>
-			<th width="20%">
+			<th width="18%">
 
 			</th>
 		</tr>
