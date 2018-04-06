@@ -73,18 +73,23 @@
 	</script>
 
 	<style>
-		#printable { display: none; }
+		.printable { display: none; }
 
 		@media print
 		{
-			#non-printable { display: none; }
-			#printable { display: block; }
+			.non-printable { display: none; }
+			.printable { display: block; }
+
+		   .table tr.cc1 {background-color: #ddd !important;}
+		   .table tr.cc2 {background-color: #fff !important;}
+			.table td{background-color: transparent !important;}
+			.table th{background-color: transparent !important;}
 		}
 	</style>
 </head>
 
 <body>
-<div id="non-printable" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top non-printable" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -110,7 +115,7 @@
     <div class="footer-inner">
         <div class="container">
             <div class="row">
-                <p id="non-printable" class="text-muted text-center"><small><a href="http://www.ai-tech.ru">ai-tech.ru</a> &copy;2014<?=(date('Y') != 2014) ? '-'.date('Y') : ''?> All Rights Reserved.</small></p>
+                <p class="text-muted text-center non-printable"><small><a href="http://www.ai-tech.ru">ai-tech.ru</a> &copy;2014<?=(date('Y') != 2014) ? '-'.date('Y') : ''?> All Rights Reserved.</small></p>
             </div>
         </div>
     </div>

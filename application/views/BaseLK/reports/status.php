@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');?>
 
-<div id="non-printable" class="col-lg-6">
+<div class="col-lg-6 non-printable">
 	<div id="title">По статусу готовности</div>
 
 	<?=Form::open('reports/status', array('method'=>'post'));?>
@@ -34,7 +34,7 @@
 <?if($count == 0){?>
 	<center><h2>Ничего не найдено</h2></center>
 <?}else if($count > 0){?>
-	<table id="non-printable" class="table table-striped table-bordered">
+	<table class="table table-striped table-bordered non-printable">
 		<thead>
 			<tr>
 				<th width="4%">
@@ -95,7 +95,7 @@
 <?}?>
 
 <?if($count > 0){?>
-	<table id="printable" class="table table-striped table-bordered">
+	<table class="table table-striped table-bordered printable">
 		<thead>
 		<tr>
 			<th width="4%">
@@ -124,8 +124,9 @@
 			</th>
 		</tr>
 		</thead>
-		<?foreach($numbers as $number){?>
-			<tr>
+		<?$i=1;foreach($numbers as $number){?>
+			<?$class = ($i%2==1)?'class="cc1"':'class="cc2"';?>
+			<tr <?=$class?>>
 				<th scope="row">
 					<?=$number->number_p?>
 				</th>
@@ -151,7 +152,7 @@
 
 				</td>
 			</tr>
-			<?}?>
+			<?$i++;}?>
 	</table>
 <?}?>
 
