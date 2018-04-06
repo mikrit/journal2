@@ -80,7 +80,7 @@
 			.non-printable { display: none; }
 			.printable { display: block; }
 
-		   .table tr.cc1 {background-color: #ddd !important;}
+		   .table tr.cc1 {background-color: #f0f0f0 !important;}
 		   .table tr.cc2 {background-color: #fff !important;}
 			.table td{background-color: transparent !important;}
 			.table th{background-color: transparent !important;}
