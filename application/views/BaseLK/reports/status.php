@@ -63,10 +63,10 @@
 				</th>
 			</tr>
 		</thead>
-		<?$i=1;foreach($numbers as $number){?>
+		<?foreach($numbers as $number){?>
 			<tr>
 				<th scope="row">
-					<?=$i?>
+					<?=$number->number_p?>
 				</th>
 				<td>
 					<?=$statuses[$number->status]?>
@@ -90,7 +90,7 @@
 
 				</td>
 			</tr>
-		<?$i++;}?>
+		<?}?>
 	</table>
 <?}?>
 
@@ -124,10 +124,10 @@
 			</th>
 		</tr>
 		</thead>
-		<?$i=1;foreach($numbers as $number){?>
+		<?foreach($numbers as $number){?>
 			<tr>
 				<th scope="row">
-					<?=$i?>
+					<?=$number->number_p?>
 				</th>
 				<td>
 					<?=$statuses[$number->status]?>
@@ -151,7 +151,7 @@
 
 				</td>
 			</tr>
-			<?$i++;}?>
+			<?}?>
 	</table>
 <?}?>
 
