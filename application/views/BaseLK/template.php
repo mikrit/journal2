@@ -50,7 +50,7 @@
 			paste_text_sticky : true,
 			toolbar1: "newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | fontsizeselect",
 			fontsize_formats: '14pt 19pt 25pt',
-			content_style: "div, p { font-size: 14pt; }"
+			content_style: "div, p { font-size: 19pt; }"
 		});
 	</script>
 
