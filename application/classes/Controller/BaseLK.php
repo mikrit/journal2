@@ -43,9 +43,9 @@ class Controller_BaseLK extends Controller_Template
 			CURLOPT_USERPWD => "labgenpat@mail.ru:1MaIXTuu95Wz6QsuQG2YpdLlTCA"
 		));
 		$answer = $request->execute()->body();
-		$balance = json_decode($answer)->data->balance;
+		//$balance = json_decode($answer)->data->balance;
 
-		$menu->balance = $balance;
+		//$menu->balance = $balance;
 		$menu->admin = $this->admin->loaded();
 		$this->template->menu = $menu->render();
 		$this->template->content = '';
