@@ -85,9 +85,6 @@
 						</td>
 					</tr>
 				<?}?>
-				<tr>
-					<td colspan="5"></td>
-				</tr>
 			</tbody>
 			<?}?>
 		</table>
@@ -141,9 +138,6 @@
 					</td>
 				</tr>
 			<?}?>
-			<tr>
-				<td colspan="5"></td>
-			</tr>
 		<?}?>
 	</table>
 <?}?>
