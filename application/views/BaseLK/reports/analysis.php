@@ -43,14 +43,11 @@
 			<?foreach($numbers_by_years as $year => $numbers){?>
 			<thead>
 				<tr>
-					<th colspan="6" style="text-align: left">
+					<th colspan="5" style="text-align: left">
 						<?=$year?> - Количество: <?=count($numbers)?>
 					</th>
 				</tr>
 				<tr>
-					<th width="5%">
-						#
-					</th>
 					<th width="20%">
 						ФИО
 					</th>
@@ -60,7 +57,7 @@
 					<th width="30%">
 						Исследования
 					</th>
-					<th width="15%">
+					<th width="20%">
 						Статус гена
 					</th>
 					<th width="15%">
@@ -69,11 +66,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?$i=1;foreach($numbers as $number){?>
+				<?foreach($numbers as $number){?>
 					<tr>
-						<td>
-							<?=$i?>
-						</td>
 						<td>
 							<?=Html::anchor('patient/data_patient/'.$number->patient->id, $number->patient->fio)?>
 						</td>
@@ -90,7 +84,10 @@
 							<?=date('d.m.Y', $number->date_add)?>
 						</td>
 					</tr>
-				<?$i++;}?>
+				<?}?>
+				<tr>
+					<td colspan="5"></td>
+				</tr>
 			</tbody>
 			<?}?>
 		</table>
@@ -103,16 +100,12 @@
 <?if($count > 0){?>
 	<table class="table table-striped table-bordered printable">
 		<?foreach($numbers_by_years as $year => $numbers){?>
-
 			<tr>
-				<th colspan="6" style="text-align: left">
+				<th colspan="5" style="text-align: left">
 					<?=$year?> - Количество: <?=count($numbers)?>
 				</th>
 			</tr>
 			<tr>
-				<th width="5%">
-					#
-				</th>
 				<th width="20%">
 					ФИО
 				</th>
@@ -122,19 +115,15 @@
 				<th width="30%">
 					Исследования
 				</th>
-				<th width="15%">
+				<th width="20%">
 					Статус гена
 				</th>
 				<th width="15%">
 					Дата приёма
 				</th>
 			</tr>
-
-			<?$i=1;foreach($numbers as $number){?>
+			<?foreach($numbers as $number){?>
 				<tr>
-					<td>
-						<?=$i?>
-					</td>
 					<td>
 						<?=$number->patient->fio?>
 					</td>
@@ -151,8 +140,10 @@
 						<?=date('d.m.Y', $number->date_add)?>
 					</td>
 				</tr>
-				<?$i++;}?>
-
+			<?}?>
+			<tr>
+				<td colspan="5"></td>
+			</tr>
 		<?}?>
 	</table>
 <?}?>
