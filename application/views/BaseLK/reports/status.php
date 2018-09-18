@@ -97,32 +97,32 @@
 <?if($count > 0){?>
 	<table class="table table-striped table-bordered printable">
 		<thead>
-		<tr>
-			<th width="4%">
-				№
-			</th>
-			<th width="10%">
-				Статус
-			</th>
-			<th width="10%">
-				№ анализа
-			</th>
-			<th width="20%">
-				ФИО
-			</th>
-			<th width="10%">
-				Истор. бол.
-			</th>
-			<th width="10%">
-				Дата приёма
-			</th>
-			<th width="18%">
+			<tr>
+				<th width="4%">
+					№
+				</th>
+				<th width="10%">
+					Статус
+				</th>
+				<th width="10%">
+					№ анализа
+				</th>
+				<th width="20%">
+					ФИО
+				</th>
+				<th width="10%">
+					Истор. бол.
+				</th>
+				<th width="10%">
+					Дата приёма
+				</th>
+				<th width="18%">
 
-			</th>
-			<th width="18%">
+				</th>
+				<th width="18%">
 
-			</th>
-		</tr>
+				</th>
+			</tr>
 		</thead>
 		<?$i=1;foreach($numbers as $number){?>
 			<?$class = ($i%2==1)?'class="cc1"':'class="cc2"';?>
