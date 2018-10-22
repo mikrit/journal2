@@ -48,25 +48,25 @@
 					</th>
 				</tr>
 				<tr>
-					<th width="20%">
+					<th width="20%" style="text-align: center; vertical-align:  middle;">
 						ФИО
 					</th>
-					<th width="10%">
+					<th width="10%" style="text-align: center; vertical-align:  middle;">
 						Номер анализа
 					</th>
-					<th width="10%">
+					<th width="10%" style="text-align: center; vertical-align:  middle;">
 						Исследования
 					</th>
-					<th width="30%">
+					<th width="30%" style="text-align: center; vertical-align:  middle;">
 						Диагноз
 					</th>
-					<th width="10%">
+					<th width="10%" style="text-align: center; vertical-align:  middle;">
 						История болезни
 					</th>
-					<th width="10%">
+					<th width="10%" style="text-align: center; vertical-align:  middle;">
 						Статус гена
 					</th>
-					<th width="10%">
+					<th width="10%" style="text-align: center; vertical-align:  middle;">
 						Дата приёма
 					</th>
 				</tr>
@@ -115,25 +115,25 @@
 				</th>
 			</tr>
 			<tr>
-				<th width="20%">
+				<th width="20%" style="text-align: center; vertical-align:  middle;">
 					ФИО
 				</th>
-				<th width="10%">
+				<th width="10%" style="text-align: center; vertical-align:  middle;">
 					Номер анализа
 				</th>
-				<th width="10%">
+				<th width="10%" style="text-align: center; vertical-align:  middle;">
 					Исследования
 				</th>
-				<th width="30%">
+				<th width="30%" style="text-align: center; vertical-align:  middle;">
 					Диагноз
 				</th>
-				<th width="10%">
-					Истор. бол.
+				<th width="10%" style="text-align: center; vertical-align:  middle;">
+					История болезни
 				</th>
-				<th width="10%">
+				<th width="10%" style="text-align: center; vertical-align:  middle;">
 					Статус гена
 				</th>
-				<th width="10%">
+				<th width="10%" style="text-align: center; vertical-align:  middle;">
 					Дата приёма
 				</th>
 			</tr>
