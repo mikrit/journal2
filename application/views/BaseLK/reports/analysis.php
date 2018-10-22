@@ -43,7 +43,7 @@
 			<?foreach($numbers_by_years as $year => $numbers){?>
 			<thead>
 				<tr>
-					<th colspan="5" style="text-align: left">
+					<th colspan="7" style="text-align: left">
 						<?=$year?> - Количество: <?=count($numbers)?>
 					</th>
 				</tr>
@@ -51,16 +51,22 @@
 					<th width="20%">
 						ФИО
 					</th>
-					<th width="15%">
+					<th width="10%">
 						Номер анализа
 					</th>
-					<th width="30%">
+					<th width="10%">
 						Исследования
 					</th>
-					<th width="20%">
+					<th width="30%">
+						Диагноз
+					</th>
+					<th width="10%">
+						Истор. бол.
+					</th>
+					<th width="10%">
 						Статус гена
 					</th>
-					<th width="15%">
+					<th width="10%">
 						Дата приёма
 					</th>
 				</tr>
@@ -76,6 +82,12 @@
 						</td>
 						<td>
 							<?=$analises?>
+						</td>
+						<td>
+							<?=$number->patient->diagnosis?>
+						</td>
+						<td>
+							<?=$number->patient->history?>
 						</td>
 						<td>
 							<?=$number->statuses->where('status.analysis_id', '=', $data['analysis_id'])->find()->status?>
@@ -98,7 +110,7 @@
 	<table class="table table-striped table-bordered printable">
 		<?foreach($numbers_by_years as $year => $numbers){?>
 			<tr>
-				<th colspan="5" style="text-align: left">
+				<th colspan="7" style="text-align: left">
 					<?=$year?> - Количество: <?=count($numbers)?>
 				</th>
 			</tr>
@@ -106,16 +118,22 @@
 				<th width="20%">
 					ФИО
 				</th>
-				<th width="15%">
+				<th width="10%">
 					Номер анализа
 				</th>
-				<th width="30%">
+				<th width="10%">
 					Исследования
 				</th>
-				<th width="20%">
+				<th width="30%">
+					Диагноз
+				</th>
+				<th width="10%">
+					Истор. бол.
+				</th>
+				<th width="10%">
 					Статус гена
 				</th>
-				<th width="15%">
+				<th width="10%">
 					Дата приёма
 				</th>
 			</tr>
@@ -129,6 +147,12 @@
 					</td>
 					<td>
 						<?=$analises?>
+					</td>
+					<td>
+						<?=$number->patient->diagnosis?>
+					</td>
+					<td>
+						<?=$number->patient->history?>
 					</td>
 					<td>
 						<?=$number->statuses->where('status.analysis_id', '=', $data['analysis_id'])->find()->status?>
