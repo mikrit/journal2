@@ -1,39 +1,25 @@
 <?php defined('SYSPATH') or die('No direct script access.');?>
 
-<table id="table_print_top">
-	<tr>
-		<td width="10%">
-			<?=HTML::image('media/img/logo_5.png', array('id' => 'print_img2'))?>
-		</td>
-		<td width="50%">
-			ООО «КОД-МЕД-БИО»<br/>
-			г.Москва, Каширское шоссе д.23<br/>
-			ФГБУ "НМИЦ онкологии им. Н.Н.Блохина", зона Б-5
-		</td>
-		<td width="40%">
-			<b>Лаборатория молекулярной патологии</b><br/>
-			Часы приема пациентов:<br/>
-			Пн.-Чт.: с 10.00 до 16.00<br/>
-			Пт.: с 10.00 до 15.00<br/>
-			<b>Тел. 8(499) 324-17-49</b><br/>
-			e-mail: labgenpat@mail.ru
-		</td>
-	</tr>
-</table>
-
-<table class="table_print" style="border-bottom: 1px solid #000" border="0">
+<table class="table_print">
 	<tr>
 		<td>
-			Исследования:<br/><b><?
-				for($i=0; $i < $analizis_count-1; $i++)
-				{
-					echo $analizis[$i]->title.", ";
-				}
-				echo $analizis[$i]->title;
-				?></b>
 		</td>
 		<td>
 			№ Исследования: <b><?=$data->number_a?></b>
+		</td>
+	</tr><tr>
+		<td>
+			Исследования: <b>
+				<?
+					for($i=0; $i < $analizis_count-1; $i++)
+					{
+						echo $analizis[$i]->title.", ";
+					}
+					echo $analizis[$i]->title;
+				?>
+				</b>
+		</td>
+		<td>
 		</td>
 	</tr>
 	<tr>
@@ -45,16 +31,10 @@
 	</tr>
 	<tr>
 		<td>
-			Пол: <?=$data->patient->sex==0?'Mужской':'Женский'?>
+			Пол: <b><?=$data->patient->sex==0?'Mужской':'Женский'?></b>
 		</td>
 		<td>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Год рождения: <?=$data->patient->year?>
-		</td>
-		<td>
+			Год рождения: <b><?=$data->patient->year?></b>
 		</td>
 	</tr>
 	<tr>
@@ -65,75 +45,89 @@
 		</td>
 	</tr>
 	<tr>
+		<td>
+			Отделение: <b><?=$data->patient->department?></b>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr>
 		<td colspan="2">
-			Клинический диагноз: <b><?=$data->patient->diagnosis?></b>
+			Диагноз: <b><?=$data->patient->diagnosis?></b>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			№ гистологии: <?=$data->material_number?>
+			№ материала: <b><?=$data->material_number?></b>
 		</td>
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			Предоставленный материал: <?=$data->material_count?>
+			Кол-во принятого материала: <b><?=$data->material_count?></b>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Контактный № телефона: <b style="font-size: 18px;"><?=$data->patient->phone?></b>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Электронная почта: _________________
 		</td>
 		<td>
 		</td>
 	</tr>
 </table>
 
-<table class="table_print" border="0">
+<table class="table_print" style="font-size: 19px;">
 	<tr>
-		<td>
-			Метод: <?=$data->method->title?>
+		<td style="text-align: justify;">
+			Я, получив полные и всесторонние разъяснения, включая исчерпывающие ответы на заданные мной вопросы, касающиеся молекулярно-генетических исследований,
+			согласен со сроками проведения исследований (2-3 недели с момента подачи заявления).  Уведомлен  о стоимости исследований. В случае использования расходных
+			реактивов для проведения исследований и выявления при этом неинформативности  предоставленного материала, делающий невозможным полное выполнение медуслуги,
+			обязуюсь оплатить 50% ее стоимости.
 		</td>
 	</tr>
 	<tr>
-		<td style="text-align: center;">
-			<b>Заключение</b>
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 14pt">
-			<?=$data->comment?>
+		<td style="text-align: right;">
+			Подпись____________________
 		</td>
 	</tr>
 </table>
 
-<table class="table_print2" border="0">
+<table class="table_print" style="font-size: 19px;">
 	<tr>
 		<td>
-			Дата выдачи заключения: <?=Date('d.m.Y г.')?>
+			<b>Согласие на обработку персональных данных пациента</b>
 		</td>
 	</tr>
-	<?if($data->user1->name != NULL){?>
-		<tr>
-			<td>
-				<?=$data->user1->position?> <?=$data->user1->name?>: ________________
-			</td>
-		</tr>
-	<?}?>
-	<?if($data->user2->name != NULL){?>
-		<tr>
-			<td>
-				<?=$data->user2->position?> <?=$data->user2->name?>: ________________
-			</td>
-		</tr>
-	<?}?>
-	<?if($data->user3->name != NULL){?>
-		<tr>
-			<td>
-				<?=$data->user3->position?> <?=$data->user3->name?>: ________________
-			</td>
-		</tr>
-	<?}?>
+	<tr>
+		<td style="text-align: justify;">
+			Я, ____________________________________________________________ (пациент, законный представитель) в соответствии со статьей 9 Федерального закона от 27.07.2006 №152-Ф3
+			«О персональных данных» даю свое согласие Обществу с ограниченной ответственностью «КОД-МЕД-БИО» (ООО «КОД-МЕД-БИО»), на обработку автоматизированной и без
+			использования автоматизации (в т.ч. по телефону) персональных данных, а именно: ФИО, дата рождения, № телефона, сведения о состоянии здоровья.
+			Настоящее согласие вступает в силу со дня его подписания до дня отзыва  в письменной форме.<br/><br/>
+			ФИО заказчика:__________________________ подпись_______________ дата_______________
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<hr>
+			<br/><br/>
+			Материал забрал ФИО:____________________ подпись_______________ дата_______________
+		</td>
+	</tr>
 </table>
 
 <script type="text/javascript">
-	/*var is_chrome = function () { return Boolean(window.chrome); }
+	var is_chrome = function () { return Boolean(window.chrome); }
 	if(is_chrome)
 	{
 		window.print();
@@ -147,5 +141,5 @@
 			window.print();
 			self.close();
 		});
-	}*/
+	}
 </script>
