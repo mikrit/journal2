@@ -25,7 +25,7 @@
 		<td width="40%">
 			e-mail: labgenpat@mail.ru<br/><br/>
 			сайт: www.labgenpat.ru<br/><br/>
-			Тел.: <b>8(499) 324-17-49</b><br/>
+			тел.: <b>8(499) 324-17-49</b><br/>
 		</td>
 	</tr>
 	<tr>
