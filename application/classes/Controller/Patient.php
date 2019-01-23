@@ -242,6 +242,7 @@ class Controller_Patient extends Controller_BaseLK
 
 			$_POST['patient_id'] = $id;
 			$_POST['date_add'] = time();
+			$_POST['date_comment'] = time();
 
 			$data = $_POST;
 
@@ -361,6 +362,8 @@ class Controller_Patient extends Controller_BaseLK
 
 		if ($_POST)
 		{
+			$_POST['date_comment'] = time();
+
 			$post = Model_Number::validation_number($_POST);
 
 			$data2 = $_POST;

@@ -106,7 +106,7 @@
 <table class="table_print2" border="0">
 	<tr>
 		<td>
-			Дата выдачи заключения: <?=Date('d.m.Y г.')?>
+			Дата выдачи заключения: <?=(isset($data->date_comment) ? date('d.m.Y', $data->date_comment) : date('d.m.Y')).' г.'?>
 		</td>
 	</tr>
 	<?if($data->user1->name != NULL){?>
