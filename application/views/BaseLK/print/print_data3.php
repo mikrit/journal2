@@ -90,7 +90,7 @@
 			</div>
 			<div style="text-align: center;">Лаборатория молекулярной патологии</div><br/>
 
-			ФИО: <b><?=$data->patient->fio?></b><br/>
+			ФИО пациента: <b><?=$data->patient->fio?></b><br/>
 			№ исследования: <b><?=$data->number_a?></b><br/>
 			№ материала: <b><?=$data->material_number?></b><br/>
 			Кол-во материала: <b><?=$data->material_count?></b>
@@ -122,6 +122,9 @@
 			<div style="text-align: center;">ООО «КОД-МЕД-БИО»<br/>
 			<b>Лаборатория<br/>молекулярной патологии</b></div>
 			<br/>
+			ФИО пациента: <b><?=$data->patient->fio?></b>
+			<br/>
+			<br/>
 
 			Исследование: <b>
 				<?
@@ -138,11 +141,11 @@
 
 			№ исследования: <b><?=$data->number_a?></b>
 			<br/>
-			<br/>
+
 			<br/>
 			Сумма: ___________________
 			<br/>
-			<br/>
+
 			<br/>
 			Код услуги: _______________
 		</td>
