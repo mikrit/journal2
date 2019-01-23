@@ -85,23 +85,4 @@ class Controller_Print extends Controller_Template
 
 		$this->template->content = $view->render();
 	}
-
-	public function action_print_personal_data()
-	{
-		$id = $this->request->param('id');
-		$data = ORM::factory('number', $id);
-
-		if(!$data->loaded())
-		{
-			$this->redirect('patient');
-		}
-
-		$view = View::factory('BaseLK/print/print_personal_data');
-
-		$view->data = $data;
-		$view->analizis = $data->analyzes->find_all()->as_array();
-		$view->analizis_count = $data->analyzes->count_all();
-
-		$this->template->content = $view->render();
-	}
 }

@@ -110,7 +110,5 @@
 		<?=Html::anchor('print/print_data3/'.$data->id, 'Печать карточки пациента 3', array('onclick' => 'this.target="_blank";'))?>
 		<br/>
 		<?=Html::anchor('print/print_conclusion/'.$data->id, 'Печать заключения', array('onclick' => 'this.target="_blank";'))?>
-		<br/>
-		<?=Html::anchor('print/print_personal_data/'.$data->id, 'Печать персональные данные', array('onclick' => 'this.target="_blank";'))?>
 	</b>
 </div>
