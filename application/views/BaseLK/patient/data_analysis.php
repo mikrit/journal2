@@ -111,6 +111,6 @@
 		<br/>
 		<?=Html::anchor('print/print_conclusion/'.$data->id, 'Печать заключения', array('onclick' => 'this.target="_blank";'))?>
 		<br/>
-		<?=Html::anchor('print/print_conclusion2/'.$data->id, 'Печать заключения 2', array('onclick' => 'this.target="_blank";'))?>
+		<?=Html::anchor('print/print_personal_data/'.$data->id, 'Печать персональные данные', array('onclick' => 'this.target="_blank";'))?>
 	</b>
 </div>
