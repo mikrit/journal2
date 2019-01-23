@@ -105,8 +105,12 @@
 	<b>
 		<?=Html::anchor('print/print_data/'.$data->id, 'Печать карточки пациента', array('onclick' => 'this.target="_blank";'))?>
 		<br/>
+		<?=Html::anchor('print/print_data2/'.$data->id, 'Печать карточки пациента 2', array('onclick' => 'this.target="_blank";'))?>
+		<br/>
+		<?=Html::anchor('print/print_data3/'.$data->id, 'Печать карточки пациента 3', array('onclick' => 'this.target="_blank";'))?>
+		<br/>
 		<?=Html::anchor('print/print_conclusion/'.$data->id, 'Печать заключения', array('onclick' => 'this.target="_blank";'))?>
 		<br/>
-		<?=Html::anchor('print/print_data2/'.$data->id, 'Печать карточки пациента 2', array('onclick' => 'this.target="_blank";'))?>
+		<?=Html::anchor('print/print_conclusion2/'.$data->id, 'Печать заключения 2', array('onclick' => 'this.target="_blank";'))?>
 	</b>
 </div>
