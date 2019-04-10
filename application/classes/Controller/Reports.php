@@ -171,7 +171,7 @@ class Controller_Reports extends Controller_BaseLK
 		$analises = $orm->title;
 
 		$status = $st[$data['status_id']];
-		$statuses = Form::select('status_id', $st, $data['status_id'], array('id'    => 'statuses', 'class' => 'form-control'));
+		$statuses = Form::select('status_id', $st, $data['status_id'], array('id' => 'st', 'class' => 'form-control'));
 
 		$view = View::factory('BaseLK/reports/analysis');
 

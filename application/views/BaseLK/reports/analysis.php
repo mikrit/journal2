@@ -20,7 +20,7 @@
 		</tr>
 		<tr>
 			<td><label>Исследование:</label></td>
-			<td><?=Form::select('analysis_id', $analyzes, $data['analysis_id'], array('class' => 'form-control'));?></td>
+			<td><?=Form::select('analysis_id', $analyzes, $data['analysis_id'], array('id' => 'analisis', 'class' => 'form-control'));?></td>
 		</tr>
 		<tr>
 			<td><label>Статус:</label></td>
@@ -165,3 +165,9 @@
 		<?}?>
 	</table>
 <?}?>
+
+<script>
+	$('#statuses').change(function(){
+
+	});
+</script>
