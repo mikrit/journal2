@@ -7,6 +7,7 @@ class Controller_Main extends Controller_BaseLK
 		$data['fio'] = '';
 		$data['number_p'] = '';
 		$data['number_a'] = '';
+		$data['material_number'] = '';
 		$data['year'] = date('Y');
 
 		$statuses = array(
@@ -48,21 +49,33 @@ class Controller_Main extends Controller_BaseLK
 				$numbers = $numbers->and_where('number.number_a', '=', $data['number_a']);
 			}
 
+			if(isset($data['material_number']) && $data['material_number'] != '')
+			{
+				$count = $count->and_where('number.material_number', 'LIKE', '%'.$data['material_number'].'%');
+				$numbers = $numbers->and_where('number.material_number', 'LIKE', '%'.$data['material_number'].'%');
+			}
+
 			if(isset($data['fio']) && $data['fio'] != '')
 			{
 				$count = $count->and_where('patients.fio', 'LIKE', '%'.$data['fio'].'%');
 				$numbers = $numbers->and_where('patients.fio', 'LIKE', '%'.$data['fio'].'%');
 			}
 
-			if(!isset($_GET['year']) || $_GET['year'] == '')
+			if(isset($data['year']) && $data['year'] != '')
+			{
+				$count = $count->and_where('number.date_add', '>=', mktime(0, 0, 0, 1, 1, $data['year']))
+                                ->and_where('number.date_add', '<=', mktime(23, 59, 59, 12, 31, $data['year']));
+				$numbers = $numbers->and_where('number.date_add', '>=', mktime(0, 0, 0, 1, 1, $data['year']))
+                                    ->and_where('number.date_add', '<=', mktime(23, 59, 59, 12, 31, $data['year']));
+			}
+
+			/*if(!isset($_GET['year']) || $_GET['year'] == '')
 			{
 				$data['year'] = date('Y');
-			}
+			}*/
 		}
 
-		$count = $count->and_where('number.date_add', '>=', mktime(0, 0, 0, 1, 1, $data['year']))
-			->and_where('number.date_add', '<=', mktime(23, 59, 59, 12, 31, $data['year']))
-			->join('patients', 'LEFT')
+		$count = $count->join('patients', 'LEFT')
 			->on('number.patient_id', '=', 'patients.id')
 			->order_by('number_p', 'desc')
 			->count_all();
@@ -73,9 +86,7 @@ class Controller_Main extends Controller_BaseLK
 			'view' => 'pagination/floating',
 		));
 
-		$numbers = $numbers->and_where('number.date_add', '>=', mktime(0, 0, 0, 1, 1, $data['year']))
-			->and_where('number.date_add', '<=', mktime(23, 59, 59, 12, 31, $data['year']))
-			->join('patients', 'LEFT')
+		$numbers = $numbers->join('patients', 'LEFT')
 			->on('number.patient_id', '=', 'patients.id')
 			->limit($pagination->items_per_page)
 			->offset($pagination->offset)

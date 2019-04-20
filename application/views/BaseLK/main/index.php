@@ -22,6 +22,10 @@
 				<td><?=Form::input('number_a', $data['number_a'], array('class' => 'form-control', 'type' => 'text'));?></td>
 			</tr>
 			<tr>
+				<td><label>Номер материала:</label></td>
+				<td><?=Form::input('material_number', $data['material_number'], array('class' => 'form-control', 'type' => 'text'));?></td>
+			</tr>
+			<tr>
 				<td class="right" colspan="2">
 					<?=Form::input('submit', 'Поиск', array('id' => 'button_search', 'type'=>'submit', 'class' => 'btn btn-primary'));?>
 				</td>

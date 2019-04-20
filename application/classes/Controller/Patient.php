@@ -115,6 +115,8 @@ class Controller_Patient extends Controller_BaseLK
 		{
 			$this->redirect('patient');
 		}
+
+        //$materials = ORM::factory('material')->where('number_id', '=', '');
 		
 		$view = View::factory('BaseLK/patient/data_patient');
 
@@ -173,7 +175,6 @@ class Controller_Patient extends Controller_BaseLK
 		$this->template->content = $view->render();
 	}
 
-	
 	public function action_delete_patient()
 	{
 		$id = $this->request->param('id');

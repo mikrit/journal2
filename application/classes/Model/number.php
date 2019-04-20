@@ -13,6 +13,11 @@ class Model_Number extends ORM
             'through'		=> 'analyzes_numbers',
             'foreign_key'	=> 'number_id',
         ),
+        'materials' => array(
+            'model'			=> 'materials',
+            //'through'		=> 'materials',
+            'foreign_key'	=> 'number_id',
+        )
 	);
 
 	protected $_belongs_to = array(
