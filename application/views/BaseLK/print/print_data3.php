@@ -7,7 +7,6 @@
 				<?=HTML::image('media/img/logo_5.png', array('id' => 'print_img_'))?>
 			</div>
 			<div style="font-size: 18px; padding-bottom: 25px;">ООО «КОД-МЕД-БИО»</div>
-			<b>Лаборатория молекулярной патологии</b>
 		</td>
 	</tr>
 	<tr>
@@ -88,7 +87,6 @@
 			<div style="float: left; margin-right: 10px;">
 				<?=HTML::image('media/img/logo_5.png', array('id' => 'print_img_'))?>
 			</div>
-			<div style="text-align: center;">Лаборатория молекулярной патологии</div><br/>
 
 			ФИО пациента: <b><?=$data->patient->fio?></b><br/>
 			№ исследования: <b><?=$data->number_a?></b><br/>
@@ -119,8 +117,7 @@
 		<td width="1%" style="border-left: 1px dashed;"></td>
 		<td width="50%" align="left" rowspan="2" id="left_row">
 			<br/>
-			<div style="text-align: center;">ООО «КОД-МЕД-БИО»<br/>
-			<b>Лаборатория<br/>молекулярной патологии</b></div>
+			<div style="text-align: center;">ООО «КОД-МЕД-БИО»</div>
 			<br/>
 			ФИО пациента: <b><?=$data->patient->fio?></b>
 			<br/>
