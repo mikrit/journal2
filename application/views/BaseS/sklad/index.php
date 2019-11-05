@@ -11,7 +11,7 @@
 		border-bottom: 0px solid #ddd;
 	}
 
-	.nav {
+	#index_data .nav {
 		margin-bottom: 50px;
 	}
 
@@ -20,7 +20,7 @@
 	}
 </style>
 
-<div class="row col-lg-12">
+<div id="index_data" class="row col-lg-12">
 	<ul class="nav nav-tabs">
 		<?$i = 1;foreach($groups as $group){?>
 			<li <?=$i == 1 ? 'class="active"' : ''?>>
