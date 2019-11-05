@@ -3,25 +3,30 @@
 <?$request = explode("/", Request::current()->uri());?>
 
 <ul class="nav navbar-nav">
-	<li <?if($request[0] == 'main'){echo 'class="active"';}?>>
+	<li <?=$request[0] == 'main' ? 'class="active"' : ''?>>
 		<?=HTML::anchor('main', 'Журнал'); ?>
 	</li>
-	<li <?if($request[0] == 'patient'){echo 'class="active"';}?>>
+	<li <?=$request[0] == 'patient' ? 'class="active"' : ''?>>
 		<?=HTML::anchor('patient', 'Пациенты'); ?>
 	</li>
-	<li <?if($request[0] == 'data'){echo 'class="active"';}?>>
+	<li <?=$request[0] == 'data' ? 'class="active"' : ''?>>
 		<?=HTML::anchor('data', 'Добавление данных'); ?>
 	</li>
-	<li <?if($request[0] == 'reports'){echo 'class="active"';}?>>
+	<li <?=$request[0] == 'reports' ? 'class="active"' : ''?>>
 		<?=HTML::anchor('reports', 'Отчёты'); ?>
 	</li>
-	<?php if($admin){?>
-		<li <?if($request[0] == 'adminka'){echo 'class="active"';}?>>
-			<?=HTML::anchor('adminka', 'Админка'); ?>
+	<?if($admin){?>
+		<li <?=$request[0] == 'adminka' ? 'class="active"' : ''?>>
+			<?=HTML::anchor('adminka', 'Админка')?>
 		</li>
 	<?}else{?>
-		<li <?if($request[0] == 'user'){echo 'class="active"';}?>>
-			<?=HTML::anchor('user', 'Личный кабинет'); ?>
+		<li <?=$request[0] == 'user' ? 'class="active"' : ''?>>
+			<?=HTML::anchor('user', 'Личный кабинет')?>
+		</li>
+	<?}?>
+	<?if($sklad){?>
+		<li>
+			<?=HTML::anchor('sklad', 'Склад')?>
 		</li>
 	<?}?>
 </ul>

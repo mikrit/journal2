@@ -28,6 +28,10 @@ $(document).ready(function() // автофокус на первую строк�
 		var password = $('#password').val();
 		var remember = $('input:checkbox:checked').val();
 
+        var uri = $(this).data('uri');
+
+        console.log(uri);
+
 		$.ajax({
 			type: "POST",
 			url: "auth/login",
@@ -46,7 +50,14 @@ $(document).ready(function() // автофокус на первую строк�
 				}
 				if(result.code == 'success') // если вернулся статус без ошибки
 				{
-					window.location.href = '/main';
+                    if(uri == 'vhod')
+                    {
+                        window.location.href = '/main';
+                    }
+                    else
+                    {
+                        window.location.href = '/sklad';
+                    }
 				}
 			}
 		});

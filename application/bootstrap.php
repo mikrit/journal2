@@ -158,6 +158,12 @@ Route::set('vhod', 'vhod')
 		'action'     => 'vhod',
 	));
 
+Route::set('vhod2', 'vhod2')
+	->defaults(array(
+		'controller' => 'info',
+		'action'     => 'vhod2',
+	));
+
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.

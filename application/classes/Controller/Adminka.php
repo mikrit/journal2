@@ -94,7 +94,8 @@ Enjoy your work.';
 		$message = '';
 		
 		$admin = $user->has('roles', ORM::factory('role', 2));
-		
+		$sklad = $user->has('roles', ORM::factory('role', 3));
+
 		if($_POST)
 		{
 			if($_POST['prov'] == 1)
@@ -133,6 +134,23 @@ Enjoy your work.';
 					$admin = 0;
 				}
 			}
+
+			if(isset($_POST['sklad']))
+			{
+				if($_POST['sklad'])
+				{
+					if(!$sklad)
+					{
+						$user->add('roles', ORM::factory('role', 3));
+						$sklad = 1;
+					}
+				}
+				else
+				{
+					$user->remove('roles', ORM::factory('role', 3));
+					$sklad = 0;
+				}
+			}
 		}
 
 		$view_profile = View::factory('BaseLK/adminka/update_user');
@@ -140,6 +158,7 @@ Enjoy your work.';
 		$view_profile->data = $user;
 		$view_profile->message = $message;
 		$view_profile->admin = $admin;
+		$view_profile->sklad = $sklad;
 
 		$view_profile->errors = $errors;
 		$this->template->content = $view_profile->render();

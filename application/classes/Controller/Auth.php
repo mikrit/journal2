@@ -12,6 +12,8 @@ class Controller_Auth extends Controller_BaseInfo
 			$view->user_name = Auth::instance()->get_user()->username;
 		}
 
+		$view->uri = Request::initial()->uri();
+
 		$this->template = $view;
 	}
 

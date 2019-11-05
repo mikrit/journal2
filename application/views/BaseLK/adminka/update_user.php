@@ -52,6 +52,14 @@
 				</td>
 			</tr>
 			<tr>
+				<td>
+					Склад:
+				</td>
+				<td>
+					<?=Form::select('sklad', array(0 => "Не склад", 1 => "Склад"), $sklad);?>
+				</td>
+			</tr>
+			<tr>
 				<td colspan="2" class="right">
 					<?
 					echo Form::input('submit', 'Обновить', array('id' => 'button', 'type'=>'submit'));

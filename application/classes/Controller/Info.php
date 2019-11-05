@@ -26,4 +26,17 @@ class Controller_Info extends Controller_BaseInfo
 		$view = View::factory('BaseInfo/info/about');
 		$this->template->content = $view->render();
 	}
+
+	public function action_vhod2()
+	{
+		if(Auth::instance()->logged_in())
+		{
+			$this->redirect('main');
+		}
+
+		$view = View::factory('BaseInfo/info/login');
+
+		$view->auth = Request::factory('auth/view_login')->execute()->body();
+		$this->template->content = $view->render();
+	}
 }

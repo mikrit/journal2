@@ -1,11 +1,16 @@
 <?php defined('SYSPATH') or die('No direct script access.');
+/**
+ * Created by PhpStorm.
+ * User: Mikrit
+ * Date: 31.10.2019
+ * Time: 22:29
+ */
 
-class Controller_BaseLK extends Controller_Template
+class Controller_BaseS extends Controller_Template
 {
-	public $template = 'BaseLK/template';
+	public $template = 'BaseS/template';
 	public $user_id = 0;
 	public $admin = '';
-	public $sklad = '';
 
 	public function __construct(Request $request, Response $response)
 	{
@@ -30,31 +35,12 @@ class Controller_BaseLK extends Controller_Template
 			$this->redirect('/');
 		}
 
-		$menu = View::factory('BaseLK/menu');
+		$menu = View::factory('BaseS/menu');
 
 		$user_id = Auth::instance()->get_user()->id;
 		$this->admin = ORM::factory('user', $user_id)->roles->where('name', '=', 'admin')->find();
-		$this->sklad = ORM::factory('user', $user_id)->roles->where('name', '=', 'sklad')->find();
 
-		$url = 'https://gate.smsaero.ru/v2/balance';
-
-		$request = Request::factory($url);
-
-		$request->client()->options(array(
-			CURLOPT_SSL_VERIFYPEER => FALSE,
-			CURLOPT_USERPWD => "labgenpat@mail.ru:1MaIXTuu95Wz6QsuQG2YpdLlTCA"
-		));
-		$answer = $request->execute()->body();
-
-		$balance = '';
-		if(strlen($answer) > 10)
-		{
-			$balance = json_decode($answer)->data->balance;
-		}
-
-		$menu->balance = $balance;
 		$menu->admin = $this->admin->loaded();
-		$menu->sklad = $this->sklad->loaded();
 		$this->template->menu = $menu->render();
 		$this->template->content = '';
 	}
