@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: Mikrit
- * Date: 03.11.2019
- * Time: 17:45
+ * Date: 21.11.2019
+ * Time: 0:43
  */
 
-class Model_Out extends ORM
+class Model_Order extends ORM
 {
 	protected $_has_many = array(
 		'subgroups'  => array(
