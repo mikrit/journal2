@@ -23,6 +23,12 @@ class Controller_Sklad extends Controller_BaseS
 					'date' => date('Y-m-d H:i:s')
 				))->save();
 
+				if($subgroup->count - $_POST['count'] < 0)
+				{
+					echo json_encode('Расход привышает остаток!');
+					die;
+				}
+
 				$subgroup->count -= $_POST['count'];
 				$subgroup->save();
 				echo json_encode(1);
@@ -38,13 +44,11 @@ class Controller_Sklad extends Controller_BaseS
 
 				if($subgroup->order - $_POST['count'] < 0)
 				{
-					$subgroup->order = 0;
-				}
-				else
-				{
-					$subgroup->order -= $_POST['count'];
+					echo json_encode('Приход привышает заказ!');
+					die;
 				}
 
+				$subgroup->order -= $_POST['count'];
 				$subgroup->count += $_POST['count'];
 				$subgroup->save();
 

@@ -197,12 +197,14 @@
 					count: count
 				}
 			}).done(function(data){
+
 				if(data != 1){
 					$('#alerts .alert-danger').removeClass('hide');
 					$('#alerts .alert-danger span.__text').html(data);
 					return;
 				}
 
+				$("#modal_reag").hide();
 				location.reload();
 			});
 		}
@@ -233,6 +235,7 @@
 					return;
 				}
 
+				$("#modal_reag").hide();
 				location.reload();
 			});
 		}
@@ -263,11 +266,10 @@
 					return;
 				}
 
+				$("#modal_reag").hide();
 				location.reload();
 			});
 		}
-
-		$("#modal_reag").hide();
 
 		return false;
 	});
