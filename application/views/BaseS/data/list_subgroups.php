@@ -15,7 +15,12 @@
 <div id="title">Реагенты</div>
 
 <div id="edit">
-	<?=Html::anchor('data2/add_subgroup/', '+ Добавить реагент')?>
+	<table width="90%">
+		<tr>
+			<td><?=Html::anchor('data2/add_subgroup/', '+ Добавить реагент')?></td>
+			<td style="text-align: right"><?=Html::anchor('data2', 'Назад')?></td>
+		</tr>
+	</table>
 </div>
 <br/><br/>
 

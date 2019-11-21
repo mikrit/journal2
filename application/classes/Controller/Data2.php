@@ -277,8 +277,6 @@ class Controller_Data2 extends Controller_BaseS
 		$data = array();
 		if ($_POST)
 		{
-			$_POST['count'] = 0;
-			$_POST['order'] = 0;
 			$post = Validation::factory($_POST)->rule('title', 'not_empty');
 			$data = $_POST;
 

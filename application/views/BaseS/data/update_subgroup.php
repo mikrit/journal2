@@ -21,19 +21,19 @@
 		<tr>
 			<td>
 				<label>Группа реагентов:</label>
-				<?=Form::select('group_id', $groups, $data['group_id'], array('class' => 'form-control'));?>
+				<?=Form::select('group_id', $groups, $data['group_id'], array('class' => 'form-control', 'required' => ''));?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<label>Фирма:</label>
-				<?=Form::select('firm_id', $firms, $data['firm_id'], array('class' => 'form-control'));?>
+				<?=Form::select('firm_id', $firms, $data['firm_id'], array('class' => 'form-control', 'required' => ''));?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<label>Реагент:</label>
-				<?=Form::input('title', $data['title'], array('class' => 'form-control'));?>
+				<?=Form::input('title', $data['title'], array('class' => 'form-control', 'required' => ''));?>
 			</td>
 		</tr>
 		<tr>

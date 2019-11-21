@@ -21,19 +21,31 @@
 		<tr>
 			<td>
 				<label>Группа реагентов:</label>
-				<?=Form::select('group_id', $groups, 1, array('class' => 'form-control'));?>
+				<?=Form::select('group_id', $groups, 1, array('class' => 'form-control', 'required' => ''));?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<label>Фирма:</label>
-				<?=Form::select('firm_id', $firms, 1, array('class' => 'form-control'));?>
+				<?=Form::select('firm_id', $firms, 1, array('class' => 'form-control', 'required' => ''));?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<label>Реагент:</label>
-				<?=Form::input('title', '', array('class' => 'form-control'));?>
+				<?=Form::input('title', '', array('class' => 'form-control', 'required' => ''));?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Количество:</label>
+				<?=Form::input('count', '0', array('class' => 'form-control'));?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>В заказе:</label>
+				<?=Form::input('order', '0', array('class' => 'form-control'));?>
 			</td>
 		</tr>
 		<tr>

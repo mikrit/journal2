@@ -48,8 +48,7 @@
 							<td><?=$subgroup->firm->title?></td>
 							<td><?=$subgroup->count?><?if($subgroup->order > 0){?> (<?=$subgroup->order?>)<?}?></td>
 							<td>
-								<span class="work_reag" data-id="<?=$subgroup->id?>" data-title="<?=$subgroup->title?>">+/-</span>&nbsp;
-								<!--span class="glyphicon glyphicon-pencil actions edit" title="Редактировать" data-id="<?$subgroup->id?>" style="color:#00AFC2; font-size: 15px !important;"></span-->
+								<span class="work_reag" data-id="<?=$subgroup->id?>" data-title="<?=$subgroup->title?>">+/-</span>
 						</td>
 						</tr>
 					<?}?>
