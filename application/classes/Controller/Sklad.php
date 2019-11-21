@@ -25,6 +25,8 @@ class Controller_Sklad extends Controller_BaseS
 
 				$subgroup->count -= $_POST['count'];
 				$subgroup->save();
+				echo json_encode(1);
+				die;
 			}
 			elseif($_POST['action'] == 'prihod')
 			{
@@ -45,6 +47,9 @@ class Controller_Sklad extends Controller_BaseS
 
 				$subgroup->count += $_POST['count'];
 				$subgroup->save();
+
+				echo json_encode(1);
+				die;
 			}
 			elseif($_POST['action'] == 'order')
 			{
@@ -57,9 +62,10 @@ class Controller_Sklad extends Controller_BaseS
 
 				$subgroup->order += $_POST['count'];
 				$subgroup->save();
+
+				echo json_encode(1);
+				die;
 			}
-			echo 1;
-			die;
 		}
 
 		$view = View::factory('BaseS/sklad/index');

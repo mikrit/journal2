@@ -67,6 +67,12 @@
 				<h4 class="modal-title">Реагент: <span id="r_title"></span></h4>
 			</div>
 			<div class="modal-body">
+				<div id="alerts">
+					<div class="alert alert-danger alert-dismissible hide" role="alert">
+						<!--button class="close" data-dismiss="alert" aria-label="Close" type="button"><span aria-hidden="true">&times;</span></button-->
+						<span class="__text"></span>
+					</div>
+				</div>
 				<ul class="nav nav-tabs" style="height: 41px;">
 					<li class="active">
 						<a id="rash" data-toggle="tab" href="#rashod" aria-expanded="true">Расход</a>
@@ -84,7 +90,8 @@
 						<br/>
 						<div class="form-group">
 							<label>Сотрудник:</label>
-							<select id="employee_id" class="form-control">
+							<select id="employee_id" class="form-control" data-placeholder="Выберите сотрудника">
+								<option></option>
 								<?foreach($employees as $employee){?>
 									<option value="<?=$employee->id?>"><?=$employee->fio?></option>
 								<?}?>
@@ -123,15 +130,27 @@
 </div>
 
 <script>
+	$('select').select2({
+		language: "ru",
+		width: '100%'
+	});
+
 	$('#rash').click(function(){
+		$('#alerts .alert-danger').addClass('hide');
+		$('#employee_id').val(0).trigger('change');
+		$('#out_count').val('');
 		$('#confirm').data('action', 'rashod');
 	});
 
 	$('#prih').click(function(){
+		$('#alerts .alert-danger').addClass('hide');
+		$('#in_count').val('');
 		$('#confirm').data('action', 'prihod');
 	});
 
 	$('#ord').click(function(){
+		$('#alerts .alert-danger').addClass('hide');
+		$('#order_count').val('');
 		$('#confirm').data('action', 'order');
 	});
 
@@ -140,6 +159,8 @@
 		reagent_id = $(this).data('id');
 		var title = $(this).data('title');
 		$('#r_title').html(title);
+		$('#employee_id').val(0).trigger('change');
+		$('#out_count').val('');
 
 		$("#modal_reag").modal({
 			backdrop: 'static',
@@ -148,6 +169,8 @@
 	});
 
 	$('#confirm').click(function(){
+		$('#alerts .alert-danger').addClass('hide');
+
 		var count = 0;
 		var action = $(this).data('action');
 
@@ -156,55 +179,91 @@
 			var employee_id = $('#employee_id').val();
 			count = $('#out_count').val();
 
+			if(employee_id == null || count == '')
+			{
+				$('#alerts .alert-danger').removeClass('hide');
+				$('#alerts .alert-danger span.__text').html('Заполните все поля!');
+				return false;
+			}
+
 			$.ajax({
-				type: "POST",
-				url: "",
-				dataType: "json",
+				type: 'POST',
+				url: '',
+				dataType: 'json',
 				data: {
 					action: action,
 					reagent_id: reagent_id,
 					employee_id: employee_id,
 					count: count
-				},
-				success: function (result) {
-					location.reload();
 				}
+			}).done(function(data){
+				if(data != 1){
+					$('#alerts .alert-danger').removeClass('hide');
+					$('#alerts .alert-danger span.__text').html(data);
+					return;
+				}
+
+				location.reload();
 			});
 		}
 		else if(action == 'prihod')
 		{
 			count = $('#in_count').val();
 
+			if(count == '')
+			{
+				$('#alerts .alert-danger').removeClass('hide');
+				$('#alerts .alert-danger span.__text').html('Заполните все поля!');
+				return false;
+			}
+
 			$.ajax({
-				type: "POST",
-				url: "",
-				dataType: "json",
+				type: 'POST',
+				url: '',
+				dataType: 'json',
 				data: {
 					action: action,
 					reagent_id: reagent_id,
 					count: count
-				},
-				success: function (result) {
-					location.reload();
 				}
+			}).done(function(data){
+				if(data != 1){
+					$('#alerts .alert-danger').removeClass('hide');
+					$('#alerts .alert-danger span.__text').html(data);
+					return;
+				}
+
+				location.reload();
 			});
 		}
 		else if(action == 'order')
 		{
 			count = $('#order_count').val();
 
+			if(count == '')
+			{
+				$('#alerts .alert-danger').removeClass('hide');
+				$('#alerts .alert-danger span.__text').html('Заполните все поля!');
+				return false;
+			}
+
 			$.ajax({
-				type: "POST",
-				url: "",
-				dataType: "json",
+				type: 'POST',
+				url: '',
+				dataType: 'json',
 				data: {
 					action: action,
 					reagent_id: reagent_id,
 					count: count
-				},
-				success: function (result) {
-					location.reload();
 				}
+			}).done(function(data){
+				if(data != 1){
+					$('#alerts .alert-danger').removeClass('hide');
+					$('#alerts .alert-danger span.__text').html(data);
+					return;
+				}
+
+				location.reload();
 			});
 		}
 
