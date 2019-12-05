@@ -257,8 +257,6 @@ class Controller_Reports extends Controller_BaseLK
 		$data['from'] = time();
 		$data['status'] = '';
 
-		$numbers = ORM::factory('number');
-
 		$statuses = array(
 			1 => 'Зарегистрирован',
 			2 => 'Материал на отборе',
@@ -314,6 +312,102 @@ class Controller_Reports extends Controller_BaseLK
 		$view->statuses = $statuses;
 		$view->count = $count;
 		$view->numbers = $numbers;
+
+		$this->template->content = $view->render();
+	}
+	
+	public function action_journal()
+	{
+		$_count = ORM::factory('number')->select(array('patients.id', 'pid'), array('patients.fio', 'fio'));
+		$numbers = ORM::factory('number')->select(array('patients.id', 'pid'), array('patients.fio', 'fio'));
+
+		$count = -1;
+
+		$data['to'] = time();
+		$data['from'] = time();
+		$data['material_number'] = '';
+
+		$statuses = array(
+			1 => 'Зарегистрирован',
+			2 => 'Материал на отборе',
+			3 => 'В работе',
+			4 => 'Готов',
+			5 => 'Отказ пациента',
+			6 => 'Отказ по состоянию материала',
+			7 => 'Отправлен пациенту',
+			8 => 'Повтор',
+			9 => 'Особый случай',
+			10 => 'Договор',
+			11 => 'ДМС',
+		);
+
+		if ($_POST)
+		{
+			$data = $_POST;
+
+			$a = explode("-", $_POST['to']);
+			if($a[0] != '')
+			{
+				$_POST['to'] = mktime(0, 0, 0, $a[1], $a[2], $a[0]);
+			}
+			else
+			{
+				$_POST['to'] = NULL;
+			}
+
+			$a = explode("-", $_POST['from']);
+			if($a[0] != '')
+			{
+				$_POST['from'] = mktime(23, 59, 59, $a[1], $a[2], $a[0]);
+			}
+			else
+			{
+				$_POST['from'] = NULL;
+			}
+
+			if($_POST['to'] == NULL || $_POST['from'] == NULL)
+			{
+				$errors = array(0 => 'Одна из дат не заполнена');
+			}
+			else
+			{
+				$material_number_arr = explode('+', $data['material_number']);
+
+				$numbers = $numbers->where_open();
+				$_count = $_count->where_open();
+
+				$numbers = $numbers->where('number.material_number', 'LIKE', '%'.$material_number_arr[0].'%');
+				$_count = $_count->where('number.material_number', 'LIKE', '%'.$material_number_arr[0].'%');
+
+				for($i = 1; $i < count($material_number_arr); $i++)
+				{
+					$numbers = $numbers->or_where('number.material_number', 'LIKE', '%'.$material_number_arr[$i].'%');
+					$_count = $_count->or_where('number.material_number', 'LIKE', '%'.$material_number_arr[$i].'%');
+				}
+
+				$numbers = $numbers->where_close();
+				$_count = $_count->where_close();
+
+				$numbers = $numbers->and_where('number.date_add', '>=', $_POST['to'])->and_where('number.date_add', '<=', $_POST['from']);
+				$count = $_count->and_where('number.date_add', '>=', $_POST['to'])->and_where('number.date_add', '<=', $_POST['from']);
+			}
+
+			$numbers = $numbers->join('patients', 'LEFT')
+				->on('number.patient_id', '=', 'patients.id')
+				->order_by('number_p', 'desc')
+				->find_all();
+
+			$count = $count->join('patients', 'LEFT')
+				->on('number.patient_id', '=', 'patients.id')
+				->order_by('number_p', 'desc')
+				->count_all();
+		}
+
+		$view = View::factory('BaseLK/reports/journal');
+		$view->data = $data;
+		$view->count = $count;
+		$view->numbers = $numbers;
+		$view->statuses = $statuses;
 
 		$this->template->content = $view->render();
 	}

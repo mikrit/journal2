@@ -15,6 +15,8 @@
 			<br/>
 			<?=Html::anchor('reports/status', 'По статусу готовности');?>
 			<br/>
+			<?=Html::anchor('reports/journal', 'По журналу');?>
+			<br/>
 		</td>
 	</tr>
 </table>

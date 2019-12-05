@@ -49,11 +49,31 @@ class Controller_Main extends Controller_BaseLK
 				$numbers = $numbers->and_where('number.number_a', '=', $data['number_a']);
 			}
 
-			if(isset($data['material_number']) && $data['material_number'] != '')
+			$material_number_arr = explode('+', $data['material_number']);
+
+			if(count($material_number_arr) > 0)
+			{
+				$numbers = $numbers->where_open();
+				$count = $count->where_open();
+
+				$numbers = $numbers->where('number.material_number', 'LIKE', '%'.$material_number_arr[0].'%');
+				$count = $count->where('number.material_number', 'LIKE', '%'.$material_number_arr[0].'%');
+
+				for($i = 1; $i < count($material_number_arr); $i++)
+				{
+					$numbers = $numbers->or_where('number.material_number', 'LIKE', '%'.$material_number_arr[$i].'%');
+					$count = $count->or_where('number.material_number', 'LIKE', '%'.$material_number_arr[$i].'%');
+				}
+
+				$numbers = $numbers->where_close();
+				$count = $count->where_close();
+			}
+
+			/*if(isset($data['material_number']) && $data['material_number'] != '')
 			{
 				$count = $count->and_where('number.material_number', 'LIKE', '%'.$data['material_number'].'%');
 				$numbers = $numbers->and_where('number.material_number', 'LIKE', '%'.$data['material_number'].'%');
-			}
+			}*/
 
 			if(isset($data['fio']) && $data['fio'] != '')
 			{
