@@ -151,10 +151,10 @@
 					<?=$statuses[$number->status]?>
 				</td>
 				<td>
-					<?=Html::anchor('patient/data_analysis/'.$number->id, $number->number_a)?>
+					<?=$number->number_a?>
 				</td>
 				<td>
-					<?=Html::anchor('patient/data_patient/'.$number->pid, $number->fio)?>
+					<?=$number->fio?>
 				</td>
 				<td>
 					<?=$number->patient->year?>
