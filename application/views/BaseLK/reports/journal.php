@@ -37,6 +37,11 @@
 	<table class="table table-striped table-bordered non-printable">
 		<thead>
 			<tr>
+				<th colspan="10" style="text-align: left">
+					Количество: <?=count($numbers)?>
+				</th>
+			</tr>
+			<tr>
 				<th>
 					№
 				</th>
@@ -109,6 +114,11 @@
 <?if($count > 0){?>
 	<table class="table table-striped table-bordered printable" style="position: absolute;top: 0;left: 0;">
 		<thead>
+			<tr>
+				<th colspan="10" style="text-align: left">
+					Количество: <?=count($numbers)?>
+				</th>
+			</tr>
 			<tr>
 				<th>
 					№
